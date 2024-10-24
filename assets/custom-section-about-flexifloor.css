@@ -1,0 +1,94 @@
+.cst-about-flxfloor-banner .section-container .page-width {
+  max-width: 100%;
+  padding: 0 75px;
+}
+.cst-about-flxfloor-banner .about-flexifloor-banne {
+  padding-top: 20px;
+}
+.cst-about-flxfloor-banner .section-container .section-inner-wrapper .image img{
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  left: 0;
+  top: 0;
+}
+.cst-about-flxfloor-banner .section-container .section-inner-wrapper .image:before {
+  content: '';
+  display: block;
+}
+.cst-about-flxfloor-banner .section-container .section-inner-wrapper  .image {
+  display: grid;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.cst-about-flxfloor-banner .section-container .section-inner-wrapper  .image img {
+   border-radius: 10px;
+}
+.cst-about-flxfloor-banner .section-container .section-inner-wrapper{
+  display: grid;
+}
+.cst-about-flxfloor-banner .section-container .section-inner-wrapper>* {
+  grid-area: 1/1;
+}
+.cst-about-flxfloor-banner .section-container .section-inner-wrapper .content{
+max-width: 830px;
+height: fit-content;
+margin: auto 0 0 0;
+padding: 60px;
+  z-index: 1;
+}
+.cst-about-flxfloor-banner .section-container .section-inner-wrapper .content .banner-heading {
+color:  #FFF;
+font-family: "Helvetica Now Display";
+font-size: 48px;
+font-style: normal;
+font-weight: 700;
+line-height: 100%;
+letter-spacing: -0.96px;
+  margin: 0 0 0 0;
+}
+.cst-about-flxfloor-banner .section-container .section-inner-wrapper .content .banner-desc{
+color: #FFF;
+font-family: "Helvetica Now Display";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%;
+}
+.cst-about-flxfloor-banner .section-container .section-inner-wrapper .content>*:not(:only-child,:last-child){
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1441px) {
+  .cst-about-flxfloor-banner .section-container .section-inner-wrapper .image:before {
+    padding-bottom: 38.76%;
+  }
+}
+@media screen and  (max-width: 767px){
+  .cst-about-flxfloor-banner .section-container .section-inner-wrapper .image img {
+    border-radius: 20px;
+  }
+.cst-about-flxfloor-banner .section-container .section-inner-wrapper .content>*:not(:only-child,:last-child) {
+    margin-bottom: 10px;
+}
+.cst-about-flxfloor-banner .section-container .section-inner-wrapper .content .banner-heading{
+font-size: 40px;
+font-weight: 700;
+line-height: 100%;
+letter-spacing: -0.8px;
+}
+  .cst-about-flxfloor-banner .section-container .page-width {
+    padding: 20px;
+  }
+  .cst-about-flxfloor-banner .section-container .section-inner-wrapper .content {
+    padding: 20px;
+  }
+    .cst-about-flxfloor-banner .section-container .section-inner-wrapper .image:before {
+        padding-bottom: 149%;
+    }
+}
+@media screen and (min-width: 1441px) {
+  .cst-about-flxfloor-banner .section-container .section-inner-wrapper .image:before {
+  padding-bottom: 28.25%;
+}

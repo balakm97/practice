@@ -1,0 +1,99 @@
+{{ 'custom-section-calculator-column.css' | asset_url | stylesheet_tag }}
+<div class="section-container">
+  <div class="page-width row">
+    <div class="section-inner-wrapper">
+      {% if section.settings.title != blank %}
+      <h4 class="heading h2">
+      {{ section.settings.title }}
+      </h4>
+        {% endif %}
+      <div class="block-container">
+     {%  for block in section.blocks %}
+    <div class="block-items">
+      <div class="media-item">
+        {% if block.settings.image != blank %}
+        <div class="image-wrapper">
+        {{
+        block.settings.image
+        | image_url: width: 3200
+        | image_tag:
+        widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+        sizes: sizes,
+        class: 'custom-section-col-image'
+        }}
+        </div>
+          {% endif %}
+      </div>
+      {% if block.settings.title != blank or  block.settings.text != blank %}
+      <div class="content-item">
+      {%- if block.settings.title != blank -%}
+      <h3 class="inline-richtext">{{ block.settings.title }}</h3>
+      {%- endif -%}
+      {%- if block.settings.text != blank -%}
+      <div class="rte content-desc">{{ block.settings.text }}</div>
+      {%- endif -%}
+      </div>
+      {%- endif -%}
+     </div>
+    {% endfor %}
+      </div>
+  </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Custom section calc col",
+    "tag": "section",
+     "class": "cst-calculator-column",
+    "settings": [
+      {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Measure Your Room",
+      "label": "Title"
+    },
+    ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "limit":3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "default": "Step 01 Title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Jorem ipsum dolor sit amet, adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu.</p>",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+    "presets": [
+    {
+      "name": "Custom section calc col",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}

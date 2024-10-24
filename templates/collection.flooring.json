@@ -1,0 +1,374 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumb_9QMRGn": {
+      "type": "breadcrumb",
+      "settings": {
+        "showInContainer": true
+      }
+    },
+    "custom_section_collection_text_box_ePHfTV": {
+      "type": "custom-section-collection-text-box",
+      "blocks": {
+        "blocks_pbQhbW": {
+          "type": "blocks",
+          "settings": {
+            "box-title": "6 Perfect Shades",
+            "description": "<p>Expertly curated shades designed to bring elegance and warmth to any space.<\/p>"
+          }
+        },
+        "blocks_DrdRiB": {
+          "type": "blocks",
+          "settings": {
+            "box-title": "Easy to Install",
+            "description": "Detailed guides and support make it simple for anyone to achieve professional results."
+          }
+        },
+        "blocks_8hJMwV": {
+          "type": "blocks",
+          "settings": {
+            "box-title": "100% Eco-Friendly",
+            "description": "<p>100% eco-friendly materials, ensuring sustainability without compromising on quality.<\/p>"
+          }
+        },
+        "blocks_hFBfdF": {
+          "type": "blocks",
+          "settings": {
+            "box-title": "Durable & Safe",
+            "description": "Built to withstand daily wear and tear. A secure, hypoallergenic surface for your home."
+          }
+        }
+      },
+      "block_order": [
+        "blocks_pbQhbW",
+        "blocks_DrdRiB",
+        "blocks_8hJMwV",
+        "blocks_hFBfdF"
+      ],
+      "settings": {
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 6,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "none",
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": false,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_section_multicolumn_7xVePJ": {
+      "type": "custom-section-multicolumn",
+      "blocks": {
+        "column_AdCNx7": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Flex-tiles-multicolumn-image.jpg",
+            "title": "Durable & Safe",
+            "text": "<p>Enjoy peace of mind with Flexifloor's durable, safe flooring. Our products are built to withstand daily wear and tear while providing a secure, hypoallergenic surface for your home.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_eiRbTx": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Flex-tiles-multicolumn-image.jpg",
+            "title": "Durable & Safe",
+            "text": "<p>Enjoy peace of mind with Flexifloor's durable, safe flooring. Our products are built to withstand daily wear and tear while providing a secure, hypoallergenic surface for your home.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_FYLBVf": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Flex-tiles-multicolumn-image.jpg",
+            "title": "Durable & Safe",
+            "text": "<p>Enjoy peace of mind with Flexifloor's durable, safe flooring. Our products are built to withstand daily wear and tear while providing a secure, hypoallergenic surface for your home.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_8ewbEg": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Flex-tiles-multicolumn-image.jpg",
+            "title": "Durable & Safe",
+            "text": "<p>Enjoy peace of mind with Flexifloor's durable, safe flooring. Our products are built to withstand daily wear and tear while providing a secure, hypoallergenic surface for your home.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_AdCNx7",
+        "column_eiRbTx",
+        "column_FYLBVf",
+        "column_8ewbEg"
+      ],
+      "settings": {
+        "title": "Transform Your Space With Flexifloor",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_section_floor_collection_table_PtUgg9": {
+      "type": "custom-section-floor-collection-table",
+      "blocks": {
+        "columns_mkzdL4": {
+          "type": "columns",
+          "settings": {
+            "column-Heading": "Flexifloor Tiles",
+            "table-data-1": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-1": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"18\" height=\"16\" viewbox=\"0 0 18 16\" fill=\"none\">\n<path d=\"M1 8.03L6.31 13.5L17 2.5\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>",
+            "table-data-2": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-2": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"18\" height=\"16\" viewbox=\"0 0 18 16\" fill=\"none\">\n<path d=\"M1 8.03L6.31 13.5L17 2.5\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>",
+            "table-data-3": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-3": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"18\" height=\"16\" viewbox=\"0 0 18 16\" fill=\"none\">\n<path d=\"M1 8.03L6.31 13.5L17 2.5\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>",
+            "table-data-4": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-4": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"18\" height=\"16\" viewbox=\"0 0 18 16\" fill=\"none\">\n<path d=\"M1 8.03L6.31 13.5L17 2.5\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>",
+            "table-data-5": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-5": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"18\" height=\"16\" viewbox=\"0 0 18 16\" fill=\"none\">\n<path d=\"M1 8.03L6.31 13.5L17 2.5\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>"
+          }
+        },
+        "columns_mjLEXa": {
+          "type": "columns",
+          "settings": {
+            "column-Heading": "Ceramic",
+            "table-data-1": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-1": "",
+            "table-data-2": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-2": "",
+            "table-data-3": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-3": "",
+            "table-data-4": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti",
+            "svg-icon-4": "",
+            "table-data-5": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-5": ""
+          }
+        },
+        "columns_8QpmtF": {
+          "type": "columns",
+          "settings": {
+            "column-Heading": "Vinyl",
+            "table-data-1": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-1": "",
+            "table-data-2": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-2": "",
+            "table-data-3": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-3": "",
+            "table-data-4": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-4": "",
+            "table-data-5": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-5": ""
+          }
+        },
+        "columns_9MzbAV": {
+          "type": "columns",
+          "settings": {
+            "column-Heading": "Porcelain",
+            "table-data-1": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-1": "",
+            "table-data-2": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-2": "",
+            "table-data-3": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-3": "",
+            "table-data-4": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-4": "",
+            "table-data-5": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+            "svg-icon-5": ""
+          }
+        }
+      },
+      "block_order": [
+        "columns_mkzdL4",
+        "columns_mjLEXa",
+        "columns_8QpmtF",
+        "columns_9MzbAV"
+      ],
+      "settings": {
+        "number_of_rows": 5
+      }
+    },
+    "custom_section_slider_with_product_6YV6d6": {
+      "type": "custom-section-slider-with-product",
+      "blocks": {
+        "image_prKm8k": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/spaces-image-1_db0c8416-4e89-4314-ad33-ad3d7f43cf34.png",
+            "alt_text": "",
+            "product": "flexifloor-tiles"
+          }
+        },
+        "image_yXLkc9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_23.png",
+            "alt_text": "",
+            "product": "flexifloor-tiles-copy"
+          }
+        },
+        "image_NX4wqW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_23_655101d7-74c2-4925-9966-fe646b4b89f2.png",
+            "alt_text": "img",
+            "product": "flexifloor-tiles"
+          }
+        },
+        "image_kUPjpk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_23.png",
+            "alt_text": "img",
+            "product": "flexifloor-tiles"
+          }
+        }
+      },
+      "block_order": [
+        "image_prKm8k",
+        "image_yXLkc9",
+        "image_NX4wqW",
+        "image_kUPjpk"
+      ],
+      "settings": {
+        "title": "Flexifloor in your Spaces",
+        "sub_title": "Get Inspired",
+        "btn_text": "Shop Now",
+        "btn_url": "shopify:\/\/collections"
+      }
+    },
+    "custom_section_collection_seo_block_M9GQBm": {
+      "type": "custom-section-collection-seo-block",
+      "settings": {
+      }
+    },
+    "multicolumn_kYLymc": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_DX8edR": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_cTbpmh": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_UhiFUN": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_EYBR3M": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_ctkFrb": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_DX8edR",
+        "column_cTbpmh",
+        "column_UhiFUN",
+        "column_EYBR3M",
+        "column_ctkFrb"
+      ],
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "breadcrumb_9QMRGn",
+    "custom_section_collection_text_box_ePHfTV",
+    "banner",
+    "product-grid",
+    "custom_section_multicolumn_7xVePJ",
+    "custom_section_floor_collection_table_PtUgg9",
+    "custom_section_slider_with_product_6YV6d6",
+    "custom_section_collection_seo_block_M9GQBm",
+    "multicolumn_kYLymc"
+  ]
+}

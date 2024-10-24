@@ -1,0 +1,235 @@
+{{ 'custom-accordian.css' | asset_url | stylesheet_tag }}
+<div class="custom-accordian" id="custom-faq">
+<div class="hero-faq">
+  <div class="hero-faq-inner">
+    <div class="hero-faq-first">
+       <div class="icon-text-row" >
+          <div class="icon mobile-hide">
+        {% if  section.settings.icon != blank   %}    {{ section.settings.icon  }} {% endif %}
+          </div>
+          <div class="text-content">
+         {% if section.settings.title != blank %} <div class="icon-group"> <span class="icon desktop-hide">
+        {% if  section.settings.icon != blank   %}    {{ section.settings.icon  }} {% endif %}
+          </span> <h4> {{ section.settings.title }}</h4> </div>{% endif %}
+         {% if section.settings.description != blank %}  <p> {{ section.settings.description }} </p> {% endif %}
+       {% if  section.settings.button_text != blank %} <a href="{{ section.settings.button_link }}" class="learn-more-btn">{{ section.settings.button_text }} </a> {% endif %}
+          </div>
+        </div>
+    </div>
+    <div class="hero-faq-second">
+      {% for block in section.blocks %}
+       
+          {% if block.settings.question != blank and block.settings.answer != blank %}
+          <div class="faq-content">
+           
+            <div class="faq-content-container">
+              <div class="faq-content-main">
+                {{ block.settings.question }}
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.75 14.375L10 5.625L1.25 14.375" stroke="#0D0D0D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <div class="faq-hidden-content-container">
+                <div class="faq-hidden-content">
+                  <p class="primary-description">{{ block.settings.answer }}</p>
+                  <p class="secondary-description">{{ block.settings.secondary_answer }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const faqs = document.querySelectorAll('.faq-content');
+    const searchInput = document.querySelector('.search-input-faq input');
+
+    // Function to close all FAQs
+    function closeAllFAQs() {
+        faqs.forEach(faq => {
+            faq.classList.remove('active');
+            faq.querySelector('.faq-hidden-content').style.display = 'none';
+        });
+    }
+
+    // Function to handle search
+    function handleSearch() {
+        const searchValue = searchInput.value.toLowerCase();
+        closeAllFAQs(); // Close all FAQs first
+
+        let hasVisibleContent = false;
+
+        faqs.forEach(faq => {
+            const questionText = faq.querySelector('.faq-content-main').innerText.toLowerCase();
+            
+            if (questionText.includes(searchValue)) {
+                faq.classList.add('active');
+                faq.querySelector('.faq-hidden-content').style.display = 'block';
+                hasVisibleContent = true;
+            } else {
+                faq.classList.remove('active');
+                faq.querySelector('.faq-hidden-content').style.display = 'none';
+            }
+        });
+
+        if (!hasVisibleContent) {
+            // Optionally show a message if no results are found
+            // For example:
+            // document.querySelector('.no-results-message').style.display = 'block';
+        }
+    }
+
+    // Initialize the first FAQ as open
+    if (faqs.length > 0) {
+        faqs[0].classList.add('active');
+        faqs[0].querySelector('.faq-hidden-content').style.display = 'block';
+    }
+
+    // Add click event listeners to each FAQ
+    faqs.forEach(faq => {
+        faq.addEventListener('click', function() {
+            if (this.classList.contains('active')) {
+                // If clicked FAQ is already active, close it
+                this.classList.remove('active');
+                this.querySelector('.faq-hidden-content').style.display = 'none';
+            } else {
+                // Close all FAQs first, then open the clicked one
+                closeAllFAQs();
+                this.classList.add('active');
+                this.querySelector('.faq-hidden-content').style.display = 'block';
+            }
+        });
+    });
+
+    // Add event listener to the search input
+    searchInput.addEventListener('input', handleSearch);
+});
+
+
+  //faq page & returns-exchanges
+  if ($(".template-page.faq").length || $(".template-page.returns-exchanges").length) {
+    // faq search
+    $(document).on("keyup", "#sidebar-faq-search", function () {
+      var q = $(this).val().toLowerCase();
+      if (q.length >= 3) {
+        $("[data-content]").addClass("hidden");
+        $("[data-content*='" + q + "']").removeClass("hidden");
+
+        $("[data-content*='" + q + "'].faq-qa-btn").closest("[data-faq-row]").addClass("active").find("[data-faq-title]").removeClass("hidden");
+        $("[data-content*='" + q + "'].faq-qa-btn").closest("[data-faq-row]").find("[data-faq-qa-list]").slideDown();
+        $("[data-content*='" + q + "'].faq-qa-btn").closest("[data-faq-question-wrap]").removeClass("hidden");
+
+        $("[data-content*='" + q + "'].faq-title").closest("[data-faq-row]").find("[data-faq-qa-list] [data-faq-question-wrap]").removeClass("hidden");
+        $("[data-content*='" + q + "'].faq-title").closest("[data-faq-row]").find("[data-faq-qa-list] [data-faq-question-wrap] [data-faq-question]").removeClass("hidden");
+
+        $("[data-content*='" + q + "'].faq-qa-wrap").closest("[data-faq-row]").find("[data-faq-title]").removeClass("hidden");
+        $("[data-content*='" + q + "'].faq-qa-wrap").closest("[data-faq-row]").addClass("active").find("[data-faq-qa-list]").slideDown();
+        $("[data-content*='" + q + "'].faq-qa-wrap").find("[data-faq-question]").removeClass("hidden");
+        $("[data-content*='" + q + "'].faq-qa-wrap").addClass("active").find("[data-faq-ans]").slideDown();
+
+        // console.log("qa",$("[data-content*='" + q + "']"));
+      } else {
+        $("[data-content]").removeClass("hidden");
+      }
+    });
+
+    // faq category show/hide
+    $(document).on("click", "[data-faq-category]", function (e) {
+      //remove hidden class and set blank search input
+      e.preventDefault();
+      var header = $("sticky-header").outerHeight(true) || 0;
+      var id = $(this).attr("href");
+      $("html, body").stop();
+      $("html, body").animate({scrollTop: $(id).offset().top - header - 23},200);
+      $("[data-content]").removeClass("hidden");
+      $(".faq-content-wrapper #sidebar-faq-search").val("");
+    });
+
+    //faq questions/answer toggle
+    $(document).on("click","[data-faq-question-wrap] [data-faq-question]",function () {
+        $(this).closest(".faq-row").siblings().find("[data-faq-question-wrap]").removeClass("active").find("[data-faq-ans]").slideUp();
+        $(this).closest("[data-faq-question-wrap]").siblings().removeClass("active").find("[data-faq-ans]").slideUp();
+        $(this).closest("[data-faq-question-wrap]").toggleClass("active").find("[data-faq-ans]").slideToggle();
+      }
+    );
+
+    // faq category title click
+    $(document).on("click", "[data-faq-title]", function () {
+      // $(this).closest("[data-faq-row]").siblings().removeClass("active").find("[data-faq-qa-list]").slideUp();
+      $(this).closest("[data-faq-row]").toggleClass("active").find("[data-faq-qa-list]").slideToggle();
+    });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "custom accordian",
+  "settings": [
+   {
+          "type": "html",
+          "id": "icon",
+          "label": "Icon SVG"
+        },
+           {
+          "type": "text",
+          "id": "title",
+          "label": "Block Title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Text"
+        },
+          {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question_answer",
+      "name": "Question and Answer",
+      "settings": [
+     
+        {
+          "type": "richtext",
+          "id": "question",
+          "label": "Question",
+          "default": "<p>What is the question?</p>"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Norem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. ."
+        },
+          {
+          "type": "textarea",
+          "id": "secondary_answer",
+          "label": "Secondary Answer",
+          "default": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Accordian",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

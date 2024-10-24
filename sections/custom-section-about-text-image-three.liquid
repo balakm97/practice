@@ -1,0 +1,163 @@
+{{ 'custom-section-about-text-image-three.css' | asset_url | stylesheet_tag }}
+<div class="section-container">
+  <div class="page-width row">
+    <div class="section-inner-wrapper {% if section.settings.layout == 'image_first' %}row-reverse{% endif %}">
+      <div class="content-container">
+         {% if section.settings.sub-title != blank %}<div class="section-subtitle">{{ section.settings.sub-title }}</div>{% endif %}
+         {%- for block in section.blocks -%}
+          {% case block.type %}
+          {%- when 'heading' -%}
+        <div class="content-wrapper text-blocks">
+        {% if block.settings.title != blank %}<h2 class="block-heading h2">{{ block.settings.title }}</h2>{% endif %}
+        {% if block.settings.description != blank  %}
+        <div class="section-desc rte">
+       <p>{{ block.settings.description }}</p>
+        </div>
+        {% endif %}
+      </div>
+            {%- when 'contact' -%}
+            <div class="content-wrapper text-blocks contact-block">
+            <div class="icon-wrapper desktop-img small-hide medium-hide">
+              <spn>
+                {{ block.settings.svg-icon }}
+              </spn>
+            </div>
+              <div class="contact-block-wrapper">
+        {% if block.settings.title != blank %}
+          <h3 class="block-heading h3">
+            <div class="icon-wrapper mobile-img large-up-hide medium-large-hide">
+              <spn>
+                {{ block.settings.svg-icon }}
+              </spn>
+            </div>{{ block.settings.title }}</h3>
+                                                                   {% endif %}
+        {% if block.settings.description != blank  %}
+        <div class="section-desc rte">
+       <p>{{ block.settings.description }}</p>
+        </div>
+          <a href="{{ block.settings.link }}" class="button button--primary btn-primary btn-primary-hover">
+            {{ block.settings.btn-text }}
+          </a>
+        {% endif %}
+      </div>
+      </div>
+         {% endcase %}
+        {% endfor %}
+      </div>
+      <div class="media-container">
+        {% if section.settings.image != blank %}
+        <div class="image">
+          <img src="{{ section.settings.image | image_url }}" height="auto" width="auto" class="img"> 
+        </div>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+      "name": "Cst Abt Text-image-three",
+      "tag": "section",
+      "class": "cst-about-text-img-three",
+    "settings": [
+          {
+          "type": "text",
+          "id": "sub-title",
+          "label": "Sub title",
+          "default": "Empowering you to DIY  "
+          },
+          {
+          "type": "image_picker",
+          "id":"image",
+          "label": "Image"
+          },
+          {
+          "type": "select",
+          "id": "layout",
+          "options": [
+                {
+                "value": "text_first",
+                "label": "Text First"
+                },
+                {
+                "value": "image_first",
+                "label": "Image First"
+                }
+                ],
+          "default": "text_first",
+          "label": "Image and Text Position"
+          },
+    ],
+      "blocks": [
+      {
+      "type": "heading",
+      "name": "t:sections.image-with-text.blocks.heading.name",
+      "limit": 2,
+      "settings": [
+       
+       {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+          },
+          {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+           "default": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. "
+          }
+      ]
+      },
+        {
+      "type": "contact",
+      "name": "Contact Block",
+      "limit": 1,
+      "settings": [
+         {
+          "type": "html",
+          "id": "svg-icon",
+          "label": "Icon"
+          },
+      {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+          },
+          {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+           "default": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. "
+          },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "btn-text",
+          "label": "Button Text",
+          "default": "Contact Us"
+        }
+      ]
+      }
+
+    ],
+    "presets": [
+    {
+    "name": "Cst Abt Text-image-three",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "contact"
+        },
+      ]
+    }
+  ]
+  }
+{% endschema %}

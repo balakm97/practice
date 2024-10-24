@@ -1,0 +1,189 @@
+
+#custom-faq-image-banner .full-blend-hero-sectiong-bg-overlay {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: #000;
+   opacity: 0.2;
+   z-index: 2;
+}
+#custom-faq-image-banner .full-blend-hero-section-container {
+   z-index: 3;
+  
+   padding-left: 60px;
+   padding-right: 60px;
+   width: 100%;
+   height: 100%;
+   position: relative;
+   margin: auto;
+}
+
+#custom-faq-image-banner .full-blend-hero-section-container-mobile-image {
+   display: none;
+}
+#custom-faq-image-banner .full-blend-hero-section-container-mobile-image img {
+   width: 100%;
+}
+#custom-faq-image-banner .full-blend-hero-section-container-relative {
+   position: relative;
+   height: 100%;
+}
+
+#custom-faq-image-banner .full-blend-hero-section-container-box {
+   padding: 0px;
+   background:transparent; 
+   display: flex;
+   flex-direction: column;
+   row-gap: 30px;
+   width: 780;
+   border-radius: 15px;
+   position: absolute;
+   bottom: 60px;
+   left: 0px;
+   z-index: 5;
+}
+
+#custom-faq-image-banner .full-blend-hero-section-container-box-content-container {
+   display: flex;
+   flex-direction: column;
+   row-gap: 10px;
+
+}
+
+#custom-faq-image-banner .full-blend-hero-section-container-box-heading-container h1 {
+  font-family: "Helvetica Now Display";
+font-size: 48px;
+font-style: normal;
+font-weight: 700;
+line-height: 100%; /* 48px */
+letter-spacing: -0.96px;
+  color:#fff;
+  margin:0;
+}
+
+#custom-faq-image-banner .full-blend-hero-section-container-box-text-container p {
+   font-family: Proxima Nova;
+  color:#fff;
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 24px;
+   color: #ffffff;
+   margin: 0;
+   padding: 0;
+   margin: 0px;
+  max-width:790px;
+}
+
+#custom-faq-image-banner .full-blend-hero-section-container-box-btn {
+   text-decoration: none;
+   font-family: Proxima Nova;
+   font-size: 16px;
+   line-height: 16px;
+   text-align: center;
+   display: inline-block;
+   padding: 15px 25px;
+   border-radius: 100px;
+   background-color: #606D22;
+   color: #FCFBF7;
+   width: 132px;
+   min-height:50px;
+   display:flex;
+   align-items:center;
+}
+
+
+#custom-faq-image-banner .catalog-banner-icon-text {
+   font-family: Proxima Nova;
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 24px;
+   text-align: left;
+   color: #0d0d0d;
+}
+
+#custom-faq-image-banner .catalog-icon-with-text {
+   display: flex;
+   gap: 24px;
+   align-items: center;
+   flex-wrap: wrap;
+   padding-top:14px;
+   display:none;
+}
+
+#custom-faq-image-banner .banner-icon-text {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+}
+
+@media only screen and (max-width : 1440px) {
+ #custom-faq-image-banner .full-blend-hero-section-container {
+       max-width: 100%;
+   }
+
+}
+
+@media only screen and (max-width : 767px) {
+
+#custom-faq-image-banner{ margin:20px;}
+#custom-faq-image-banner .full-blend-hero-section-container-desktop-image{ display:none;}
+ #custom-faq-image-banner .full-blend-hero-section-container-box-heading-container h1 {
+
+font-family: "Helvetica Now Display";
+font-size: 40px;
+font-style: normal;
+font-weight: 700;
+line-height: 100%; /* 40px */
+letter-spacing: -0.8px;
+
+   }
+
+ #custom-faq-image-banner .full-blend-hero-section-container-box {
+       position: absolute;
+       padding: 0px 20px;
+       width: 100%;
+       bottom: 40px;
+   }
+
+ #custom-faq-image-banner .full-blend-hero-section-container-box-btn {
+       display: block;
+       width: 100%;
+   }
+
+ #custom-faq-image-banner .full-blend-hero-section-container {
+       padding-left: 0px;
+       padding-right: 0px;
+   }
+
+ #custom-faq-image-banner .full-blend-hero-section-container-mobile-image {
+       display: block;
+   }
+
+ #custom-faq-image-banner .full-blend-hero-sectiong-bg-overlay {
+       background: transparent;
+   }
+
+ #custom-faq-image-banner {
+       background-image: none;
+       height: auto;
+   }
+
+ #custom-faq-image-banner .full-blend-hero-section-container-mobile-image img {
+       width: 100%;
+       object-fit: cover;
+       object-position: center center;
+   }
+   #custom-faq-image-banner .catalog-icon-with-text{
+           flex-direction: column;
+     gap: 16px;
+     padding: 0;
+     /* justify-content: flex-start; */
+     align-items: flex-start;
+ }
+ #custom-faq-image-banner .full-blend-hero-section-container-box-content-container{
+   row-gap:16px;
+ }
+
+}

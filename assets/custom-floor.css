@@ -1,0 +1,211 @@
+.custom-floor .row {
+  /* max-width:1770px;
+  margin:0 auto; */
+padding: 150px 75px;
+}
+.custom-floor .tbody-content .svg-icon {
+width: 40px;
+height: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 100px;
+background:rgba(255, 255, 255, 0.20);
+min-width: 40px;
+max-width: 40px;
+}
+.custom-floor .section-container {
+  padding: 150px 0;
+}
+.custom-floor .tbody-content .svg-icon path {
+stroke: white;
+}
+.custom-floor .tbody-content .svg-icon svg {
+width: 16px;
+height: 16px;
+}
+.custom-floor .tbody-content {
+display: flex;
+align-items: center;
+row-gap: 20px;
+column-gap: 20px;
+}
+.custom-floor .section-heading .sub-title {
+  color: rgba(0, 0, 0, 0.20);
+font-family: "Helvetica Now Display";
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 120%;
+letter-spacing: -0.4px;
+}
+.custom-floor .section-heading {
+  padding: 0 0 0 0;
+}
+.custom-floor .section-main-heading {
+margin: 0 0 0 0;
+color: #000;
+font-size: 40px;
+font-style: normal;
+font-weight: 700;
+line-height: 100%;
+letter-spacing: -0.8px;
+  max-width:502px;
+}
+.custom-floor .section-main-heading span{
+  color:  #2783D2;
+}
+.custom-floor .section-heading >*:not(:last-child,:only-child){
+  margin-bottom:30px;
+}
+.custom-floor .section-heading {
+  margin-bottom: 60px;
+  max-width: 870px;
+}
+.custom-floor table{
+box-shadow: none;
+}
+.custom-floor table th,
+.custom-floor table td{
+border: .1rem solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid var(--black-5, rgba(0, 0, 0, 0.05));
+padding:30px;
+}
+
+.custom-floor table tbody tr td:first-child,
+.custom-floor table thead tr th:first-child{
+background: #2783D2;
+color: #FFF;
+  border: .1rem solid rgba(255, 255, 255, .3);
+}
+.custom-floor table thead tr th:first-child{
+border-radius: 10px 10px 0 0;
+min-width: 40.4%;
+max-width: 40.4%;
+width: 40.4%;
+}
+.custom-floor table tbody tr:last-child td:first-child{
+border-radius: 0 0 10px 10px;
+}
+.custom-floor table th,
+.custom-floor table td{
+border-right: 0px;
+border-left: 0px;
+  
+}
+.custom-floor table thead tr th{
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 28.8px;
+letter-spacing: -0.48px;
+text-align: left;
+color: rgba(0, 0, 0, 0.20);
+}
+.custom-floor table thead tr th:first-child{
+color: white;
+}
+.custom-floor table tbody tr td:not(:first-child) .svg-icon {
+display: none;
+}
+.custom-floor .tbody-content p {
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 150%;
+  margin: 0;
+  color: #000;
+}
+.custom-floor table tbody tr td:first-child p{
+  color: #fff;
+}
+@media only screen and (max-width: 1441px){
+.custom-floor table thead tr th:first-child{
+max-width: 410px;
+width: 410px;
+min-width: 200px;
+}
+}
+@media screen and (max-width: 1199px) {
+  .custom-floor .row{
+    padding: 0 0 0 30px;
+  }
+  .custom-floor table thead tr th:first-child {
+        max-width: 280px;
+        width: 410px;
+        min-width: 280px;
+    }
+  .custom-floor .table-wrapper {
+    -webkit-overflow-scrolling: touch;
+    padding: 0 0 40px 0;
+    border-radius: 5px;
+    overflow-x: auto;
+    -ms-scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
+    }
+  .custom-floor .table-wrapper::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.05);
+}
+
+.custom-floor .table-wrapper::-webkit-scrollbar {
+  height: 4px;
+  background-color: #f5f5f5;
+  margin: 2px;
+}
+
+.custom-floor .table-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #2783D2;
+}
+
+}
+@media screen and (max-width: 767px){
+.custom-floor table thead tr th {
+  font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 24px;
+letter-spacing: -0.4px;
+  padding: 30px 20px;
+}
+  .custom-floor .section-main-heading{
+    font-size: 36px;
+    letter-spacing: -0.72px;
+  }
+  .custom-floor .section-heading .sub-title{
+    font-size: 18px;
+    letter-spacing: 0.36px;
+  }
+  .custom-floor table thead tr th {
+        max-width: 280px;
+        width: 100%;
+        min-width: 280px;
+    }
+  .custom-floor .section-heading >*:not(:last-child,:only-child) {
+    margin-bottom: 20px;
+}
+ .custom-floor .row{
+    padding: 60px 0 60px 20px;
+  }
+  .custom-floor .table-wrapper {
+  }
+  .custom-floor .tbody-content .svg-icon svg {
+    width: 12px;
+    height: 12px;
+  }
+  .custom-floor .tbody-content .svg-icon {
+        width: 30px;
+    height: 30px;
+    min-width: 30px;
+    max-width: 30px;
+  }
+  .custom-floor table th, .custom-floor table td {
+    padding: 20px;
+  }
+  .custom-floor .section-container {
+  padding: 60px 0;
+} 
+
+}

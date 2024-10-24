@@ -1,0 +1,123 @@
+<div class="image-video-banner">
+  <div class="banner-overlay"></div>
+  {% for block in section.blocks %}
+    {% if block.type == "image" %}
+      <div class="image-banner">
+        <img src="{{ block.settings.video_image | image_url }}" alt="Banner Image">
+        <!-- Banner Overlay with Dynamic Opacity -->
+        <div class="banner-overlay" style="opacity: {{ block.settings.overlay_opacity | divided_by: 100 }};"></div>  
+      </div> 
+    {% endif %}
+   <div class="banner-content">
+      {% if block.settings.title != blank %}
+            <div>
+              <h1 class="banner-title" style="color: {{ block.settings.color_text }};">
+                {{ block.settings.title | escape }}
+              </h1>
+            </div>
+    {% endif %}
+   {% if block.settings.richtext != blank %}
+      <div>
+        <p class="banner-description" style="color: {{ block.settings.color_text }};">
+          {{ block.settings.richtext | richtext }}
+        </p>
+      </div>
+    {% endif %}
+   {% if block.type == "button" and block.settings.button_text != blank %}
+      <div class="banner-button">
+        <a href="{{ block.settings.button_link | escape }}" class="btn">
+          {{ block.settings.button_text | escape }}
+        </a>
+      </div>
+    {% endif %}
+   </div>
+  {% endfor %}
+</div>
+
+
+{% schema %}
+{
+  "name": "Image Video Banner",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "video_image",
+          "label": "Video Image"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }, 
+        {
+          "type": "color",
+          "id": "color_text",
+          "label":"Color",
+          "default": "#ffffff"
+        },
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "richtext",
+          "label": "Description"
+        },
+        {
+          "type": "color",
+          "id": "color_text",
+          "label":"Color",
+          "default": "#ffffff"
+        },
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+    
+  ],
+  "presets": [
+    {
+      "name": "Image Video Banner",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,156 @@
+{{ 'custom-help-faq.css' | asset_url | stylesheet_tag }}
+<div class="custom-faq" id="custom-faq">
+  <div class="hero-faq">
+    <div class="hero-faq-inner">
+      <div class="hero-faq-first">
+        <h2>{{ section.settings.faq_title }}</h2>
+        <div class="search-help-container">
+          <div class="search-input-faq">
+            <input type="search" id="faqSearch" placeholder="{{ section.settings.search_placeholder }}" oninput="filterFAQs()">
+          </div>
+          {% render 'custom-search-icon' %}
+        </div>
+      </div>
+      <div class="hero-faq-second">
+        {% assign currentTitle = '' %}
+        {% for block in section.blocks %}
+          {% if block.type == 'title' %}
+            {% assign currentTitle = block.settings.title %}
+            <div class="faq-title" data-title="{{ currentTitle }}">
+              <h3>{{ currentTitle }}</h3>
+            </div>
+          {% elsif block.type == 'question_answer' %}
+            {% if block.settings.question != blank and block.settings.answer != blank %}
+              <div class="faq-content" data-title="{{ currentTitle }}">
+                <div class="faq-content-container">
+                  <div class="faq-content-main">
+                    <span class="faq-question">{{ block.settings.question }}</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18.75 14.375L10 5.625L1.25 14.375" stroke="#0D0D0D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </div>
+                  <div class="faq-hidden-content-container">
+                    <div class="faq-hidden-content">
+                      <p class="primary-description">{{ block.settings.answer }}</p>
+                      <p class="secondary-description">{{ block.settings.secondary_answer }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+ function filterFAQs() {
+    const searchInput = document.getElementById('faqSearch').value.toLowerCase();
+    const faqContents = document.querySelectorAll('.faq-content');
+    const faqTitles = new Set();
+
+    faqContents.forEach(faq => {
+      const questionText = faq.querySelector('.faq-question').innerText.toLowerCase();
+      const title = faq.getAttribute('data-title');
+
+      // Show or hide the FAQ content based on the search
+      if (questionText.includes(searchInput)) {
+        faq.style.display = 'block'; // Show matching FAQ
+        faqTitles.add(title); // Collect the titles of matching FAQs
+      } else {
+        faq.style.display = 'none'; // Hide non-matching FAQ
+      }
+    });
+
+    // Show or hide titles based on the collected matching titles
+    document.querySelectorAll('.faq-title').forEach(title => {
+      const titleText = title.getAttribute('data-title');
+      if (faqTitles.has(titleText)) {
+        title.style.display = 'block'; // Show title if any FAQ under it is visible
+      } else {
+        title.style.display = 'none'; // Hide title if no FAQs under it are visible
+      }
+    });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Help FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "faq_title",
+      "label": "FAQ Title",
+      "default": "FAQ"
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search Placeholder",
+      "default": "Search by question"
+    },
+    {
+      "type": "text",
+      "id": "title1",
+      "label": "Heading",
+      "default": "FAQs"
+    },
+    {
+      "type": "richtext",
+      "id": "text1",
+      "label": "Text",
+      "default": "<p>Use this section for any descriptive text you need to fill out your pages or to add introductory headings between other blocks.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "title",
+      "name": "Title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Default Title"
+        }
+      ]
+    },
+    {
+      "type": "question_answer",
+      "name": "Question and Answer",
+      "settings": [
+     
+        {
+          "type": "richtext",
+          "id": "question",
+          "label": "Question",
+          "default": "<p>What is the question?</p>"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Norem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. ."
+        },
+          {
+          "type": "textarea",
+          "id": "secondary_answer",
+          "label": "Secondary Answer",
+          "default": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Help Faq",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

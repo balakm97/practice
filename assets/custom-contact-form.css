@@ -1,0 +1,316 @@
+.custom-contact-form img {
+  max-width: 100%;
+}
+
+.custom-contact-form .form__message {
+  align-items: flex-start;
+}
+
+.custom-contact-form .icon-success {
+  margin-top: 0.2rem;
+}
+
+.custom-contact-form .field {
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 750px) {
+  .custom-contact-form .field {
+    margin-bottom: 2rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+.custom-contact-form{ padding-left:0; padding-right:0; } }
+.contact__button {
+  margin-top: 3rem;
+}
+
+@media screen and (min-width: 750px) {
+  .contact__button {
+    margin-top: 4rem;
+  }
+}
+.card .card-button:after{
+    content: "";
+    width: 0;
+    height: 1px;
+    background: currentcolor;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    pointer-events: none;
+    transition: width .3s ease-in;
+}
+.card .card-button{ position:relative;}
+.card .card-button:hover:after{
+  width:100%; 
+}
+@media screen and (min-width: 768px) {
+.card .card-button:hover{     background-color: #ffffff;
+    color: #1c3f5e; } }
+@media screen and (min-width: 750px) {
+  .contact__fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+ .custom-contact-form .contact-section {
+    padding: 0px;
+    max-width: 870px;
+    margin: 0 auto;
+}
+
+/* Top portion with contact details */
+.top-portion {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.contact-box, .opening-hours {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.contact-box h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.contact-box p, .opening-hours p {
+      margin: 25px 0 10px 0;
+}
+
+.opening-hours h3 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Bottom portion with two cards */
+.bottom-portion {
+    display: flex;
+    justify-content: space-between;
+  margin-top:30px; 
+}
+.card.talk-to-expert{
+  background-color:#2783D2;
+}
+.card.book-consultation{
+  background-color:#1C3F5E;
+}
+.card {
+    flex: 1;
+  
+    padding: 30px 20px;
+    margin-right: 30px;
+    text-align: left;
+    border-radius: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.card:last-child {
+    margin-right: 0;
+}
+
+.card h4 {
+  color: var(--White, #FFF);
+/* Header 05 */
+font-family: "Helvetica Now Display";
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 120%; /* 28.8px */
+letter-spacing: -0.48px;
+    margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--White, #FFF);
+/* Body Text Large / Regular */
+font-family: "Helvetica Now Display";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 24px */
+    margin-bottom: 30px;
+}
+.card{ gap:20px; }
+
+.card .card-button {
+display: flex;
+width:fit-content; 
+height: 50px;
+min-height: 50px;
+max-height: 50px;
+min-width:141px;
+padding: 15px 30px;
+justify-content: center;
+transition:all 0.3s linear; 
+align-items: center;
+border:2px solid #fff; 
+  border-radius:10px;
+    text-decoration:none;
+    color:#ffffff; 
+}
+
+ .custom-contact-form .opening-hours{
+  max-width:40rem; width:100%; margin-top:16px;
+}
+
+  .custom-contact-form .title{font-family: "Helvetica Now Display";
+font-size: 40px;
+font-style: normal;
+font-weight: 700;
+line-height: 100%; /* 40px */
+letter-spacing: -0.8px; color:#000; }
+
+ .custom-contact-form .opening-hours span{
+    font-family: "Helvetica Now Display";
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 150%; /* 21px */
+color:#000;
+opacity:0.2;
+}
+.opening-hours p{
+  margin:10px 0;
+color: var(--Black, #000);
+font-family: "Helvetica Now Display";
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 120%; /* 28.8px */
+letter-spacing: -0.48px;
+}
+
+  
+   .custom-contact-form  p span{
+  font-family: "Helvetica Now Display";
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 150%; /* 21px */
+color:#000;
+opacity:0.2;
+  }
+  .contact-box a{
+    text-decoration:none; 
+color: var(--Black, #000);
+font-family: "Helvetica Now Display";
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 120%; /* 28.8px */
+letter-spacing: -0.48px; 
+  
+  }
+.card.talk-to-expert{ display:flex; align-items:flex-start;     flex-direction: row; }
+  .contact-icon h4{ margin-top:0; }
+
+  .card.book-consultation{     display: flex;
+    flex-direction: row; }
+
+  .contant-form-new{ margin-top:15rem;}
+  @media screen and (max-width:989px){
+.custom-contact-form .opening-hours{ max-width:30rem;} }
+  @media screen and (max-width:620px){
+    .top-portion{ flex-direction:column; }
+    .bottom-portion{ gap:10px;}
+    .card.talk-to-expert{ margin-right:0;}
+  .bottom-portion{ flex-direction:column;} 
+
+  }
+  @media screen and (max-width:767px){
+    .custom-contact-form .title{ font-size:36px; }
+   .custom-contact-form .card{ border-radius:20px;}
+    .custom-contact-form{ padding:0 20px; }
+    .contact-icon h4{ font-size:20px; }
+    .custom-contact-form p span{ font-size:12px; }
+    .contact-box a{ font-size:20px; }
+    .opening-hours p{ font-size:20px; }
+  }
+
+
+  .contact-title{
+    color: var(--Black, #000);
+font-family: "Helvetica Now Display";
+font-size: 40px;
+font-style: normal;
+font-weight: 700;
+line-height: 100%; /* 40px */
+letter-spacing: -0.8px;
+  }
+  .custom-contact-form{ max-width:87rem;}
+  .field:after , .field:hover:after , .field__input:focus , .field:hover.field:after{ border-radius:10px; }
+
+ .field__label{
+    color: var(--black-20, rgba(0, 0, 0, 0.20));
+/* Body Text Large / Regular */
+font-family: "Helvetica Now Display";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 24px */
+
+  }
+  .contact__button .button{ min-width:116px; height:50px; border:1px solid transparent; transition:all 0.3s linear;  }
+ .contact__button .button:hover{ color:#2783D2; border:1px solid #2783D2; background:transparent; }
+   .contact__button .button:hover:after{ box-shadow:none;}
+   .contact__button .button:after{border-radius:10px; box-shadow:none; }
+  .contact__button .button{ border-radius:10px;     background-color: #2783D2; }
+  .text-area.field__input{ min-height:180px; height:180px; }
+  .field__input{ min-height:50px; height:50px; }
+  @media screen and (min-width: 768px) {
+    a.card-button.desktop-hide{ display:none; }
+  .icon.desktop-hide{ display:none;} }
+  @media screen and (max-width: 767px) {
+    .icon.desktop-hide{ width:24px; height:24px; }
+    .card p{ margin-bottom:20px; }
+    .card .card-button{ padding:0;min-height: fit-content;
+        height: fit-content;
+        font-family: Inter ! Important;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: normal;  }
+    .card-button.desktop-hide svg{margin-left:5px; }
+    .card-button.mobile-hide{ display:none;}
+    .icon.mobile-hide{ display:none; }
+    .contant-form-new{ margin-top:10rem; }
+    .icon.desktop-hide svg{ width:24px; height:24px; }
+    .contact-icon h4{ margin-bottom:0;}
+    .card p{ margin-top:10px;}
+    .icon-group{ gap:15px; display:flex; align-items:center; }
+     .icon.mobile-hide{ display:none;}
+  .contact-title{ font-size:36px;} 
+  .card-button.desktop-hide{ border:none; }
+  }
+
+  .custom-contact-form{ margin-bottom:8rem; }
+  @media screen and (max-width:576px){
+    .contact__button .button{
+       min-width:100%;
+    max-width:100%;
+    }
+   
+  }

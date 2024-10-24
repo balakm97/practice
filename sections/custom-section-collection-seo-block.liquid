@@ -1,0 +1,41 @@
+{% if collection.metafields.accentuate.collection_footer_title != blank or collection.metafields.accentuate.collection_footer_descrption != blank %}
+{{ 'custom-section-collection-seo-block.css' | asset_url | stylesheet_tag}}
+<div class="section-container">
+  <div class="row">
+  <div class="section-heading">
+    {% capture collection_sec_cap  %}
+    {% if collection.metafields.accentuate.collection_footer_title != blank %}
+      <h2 class="section-main-heading seo-title">{{ collection.metafields.accentuate.collection_footer_title }}</h2>
+    {% endif %}
+    {% if collection.metafields.accentuate.collection_footer_descrption != blank %}
+      <div class="seo-description rte">
+        {{ collection.metafields.accentuate.collection_footer_descrption }}
+      </div>
+    {% endif %}
+    {% endcapture %}
+    {{ collection_sec_cap }}
+    </div>
+  </div>
+</div>
+{% endif %}{% assign collection_sec_cap = collection_sec_cap | strip_newlines | strip %}
+{% if collection_sec_cap == blank %}
+  <script>
+    document.getElementById('shopify-section-{{ section.id }}').classList.add('hidden');
+    document.getElementById('shopify-section-{{ section.id }}').remove();
+  </script>
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Custom Collection SEO",
+    "class": "collection-seo-block",
+    "tag": "section",
+    "settings": [],
+     "presets": [
+    {
+      "name": "Custom Collection SEO",
+  }
+    ]
+  }
+{% endschema %}

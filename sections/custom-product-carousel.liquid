@@ -1,0 +1,126 @@
+
+{{ 'custom-home-product-carousel.css' | asset_url | stylesheet_tag }}
+<div class="carousel-section section-padding home-product-section">
+  <div class="product-carousel-heading">
+     <div>
+        <h4 class="heading">{{ section.settings.sub_title}}</h4>
+        <h2>{{ section.settings.title}}</h2>
+     </div>
+    <div>
+      <a href="{{ section.settings.btn_url}}" class="button btn-primary btn-primary-hover">{{ section.settings.btn_text}}</a>
+    </div>
+  </div>
+  <div class="custom-product-slider">
+    {% for block in section.blocks %}
+      <div class="carousel-item">
+        {% assign product = all_products[block.settings.product] %}
+
+        <!-- Display the image -->
+        <a class="main-image-data" {% if product %} href="{{ product.url }}" {% endif %}>
+          <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.alt_text }}">
+        </a>
+
+        <!-- Only show product details if a product is selected -->
+       {% if product %}
+          <div class="product-details">
+            <div class="product-image">
+              <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+            </div>
+            <div class="product-infos">
+              {% if product.selected_or_first_available_variant %}
+                <div class="mobile-flex">
+                  {% assign product_collections = product.collections %}
+                  {% if product_collections.size > 0 %}
+                    <p class="product-collection-name">{{ product_collections[0].title }}</p>
+                  {% endif %}
+                  <p class="product-title">{{ product.title }}</p>
+                  
+                </div>
+                {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+                  <div>
+                     <p class="mobile-flex">
+                       <span class="compare-at-price">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+                     </p>
+                     <p class="product-prices">{{ product.selected_or_first_available_variant.price | money }}</p>
+                  </div>
+                 
+                {% endif %}
+              {% endif %}
+              <span class="product-info-arrow-mobile">
+                {% render 'icon-right-arrow' %}
+              </span>
+            </div>
+  </div>
+{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Product Carousel Section",
+  "class": "product-carousel-section",
+  "settings": [
+    {
+     
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+       
+    },
+     {
+     
+          "type": "text",
+          "id": "sub_title",
+          "label": "Sub Title"
+       
+    },
+     {
+     
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button"
+       
+    },
+     {
+     
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button Url"
+       
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Carousel Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+

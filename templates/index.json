@@ -1,0 +1,341 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Transform Your Space With Flexifloor Solutions</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_TEh9ft": {
+          "type": "text",
+          "settings": {
+            "text": "Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "text_style": "body",
+            "additional_text": ""
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": "false",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": "false"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text_TEh9ft",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/hero_2.png",
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "image_behavior": "none",
+        "stack_images_on_mobile": false,
+        "show_text_below": false,
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "center",
+        "show_text_box": false,
+        "show_overlay": false,
+        "color_scheme": "scheme-2"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "1724315412127042bc": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_A69E3N": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_A69E3N"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "banner_image_ikt8hy": {
+      "type": "banner-image",
+      "settings": {
+      }
+    },
+    "who_we_are_PdALUq": {
+      "type": "who-we-are",
+      "settings": {
+        "heading_text": "Who we are?",
+        "subheading_text": "<p>Our passion is to offer you <strong>top-notch flooring</strong> that combines <strong>superior aesthetics</strong> with <strong>unparalleled durability</strong>. Whether you’re a DIY enthusiast or a first-time installer, enjoy stunning, eco-friendly floors that last, with <strong>support every step</strong> of the way.</p>",
+        "product_1_image": "shopify://shop_images/p1.png",
+        "product_1_title": "Flexifloor Hardwood",
+        "product_1_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "product_1_link": "#",
+        "product_2_image": "shopify://shop_images/p2.png",
+        "product_2_title": "Flexifloor Tiles",
+        "product_2_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "product_2_link": "#"
+      }
+    },
+    "product_carousel_yFGydT": {
+      "type": "product-carousel",
+      "blocks": {
+        "image_QbRh3f": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/spaces-image-1_db0c8416-4e89-4314-ad33-ad3d7f43cf34.png",
+            "alt_text": "",
+            "product": "flexifloor-tiles"
+          }
+        },
+        "image_UnqFDr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_23.png",
+            "alt_text": "",
+            "product": "flexifloor-tiles-copy"
+          }
+        },
+        "image_PDpReR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_23_655101d7-74c2-4925-9966-fe646b4b89f2.png",
+            "alt_text": "img",
+            "product": "flexifloor-tiles"
+          }
+        },
+        "image_GLeYE4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_23.png",
+            "alt_text": "img",
+            "product": "flexifloor-tiles"
+          }
+        }
+      },
+      "block_order": [
+        "image_QbRh3f",
+        "image_UnqFDr",
+        "image_PDpReR",
+        "image_GLeYE4"
+      ],
+      "settings": {
+      }
+    },
+    "multicolumn_hgamyA": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_iBQDEp": {
+          "type": "column",
+          "settings": {
+            "title": "6 Perfect Shades",
+            "text": "<p>Discover the perfect match for your decor with Flexifloor's six expertly curated shades. Each color is designed to bring elegance and warmth to any space.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_bQH8Ln": {
+          "type": "column",
+          "settings": {
+            "title": "Easy to Install",
+            "text": "<p>Transform your space effortlessly with Flexifloor’s DIY-friendly installation. Our detailed guides and support make it simple for anyone to achieve professional results.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_QR4nkX": {
+          "type": "column",
+          "settings": {
+            "title": "100% Eco-Friendly",
+            "text": "<p>Choose Flexifloor for a greener home. Our flooring is made from 100% eco-friendly materials, ensuring sustainability without compromising on quality.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_9kmdKC": {
+          "type": "column",
+          "settings": {
+            "title": "Durable & Safe",
+            "text": "<p>Enjoy peace of mind with Flexifloor's durable, safe flooring. Our products are built to withstand daily wear and tear while providing a secure, hypoallergenic surface for your home.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_iBQDEp",
+        "column_bQH8Ln",
+        "column_QR4nkX",
+        "column_9kmdKC"
+      ],
+      "settings": {
+        "title": "Why Flexifloor?",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_6qHJft": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_f7DATn": {
+          "type": "caption",
+          "settings": {
+            "caption": "Why Flexifoor?",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        },
+        "heading_Ry8UPW": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Transform your </strong><em><strong>space hassle</strong></em><strong> free with Flexifloor simple installation solution.</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "button_wQiKre": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_f7DATn",
+        "heading_Ry8UPW",
+        "button_wQiKre"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/hero_2.png",
+        "height": "large",
+        "desktop_image_width": "large",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "payment_stats_H7pDjp": {
+      "type": "payment-stats",
+      "blocks": {
+        "stat_VGzr6P": {
+          "type": "stat",
+          "settings": {
+            "name": "Apr Financing",
+            "percentage": 50,
+            "plus": 0
+          }
+        },
+        "stat_7JM3MT": {
+          "type": "stat",
+          "settings": {
+            "name": "Down Payment",
+            "percentage": 45,
+            "plus": 0
+          }
+        },
+        "stat_Rtdrqh": {
+          "type": "stat",
+          "settings": {
+            "name": "Monthly Payments",
+            "percentage": 0,
+            "plus": 30
+          }
+        }
+      },
+      "block_order": [
+        "stat_VGzr6P",
+        "stat_7JM3MT",
+        "stat_Rtdrqh"
+      ],
+      "settings": {
+        "heading": "Get Started Now. Pay later.",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+      }
+    },
+    "17266498781c268b4d": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection",
+    "1724315412127042bc",
+    "banner_image_ikt8hy",
+    "who_we_are_PdALUq",
+    "product_carousel_yFGydT",
+    "multicolumn_hgamyA",
+    "image_with_text_6qHJft",
+    "payment_stats_H7pDjp",
+    "17266498781c268b4d"
+  ]
+}

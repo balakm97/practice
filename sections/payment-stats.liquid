@@ -1,0 +1,133 @@
+<div class="section-padding">
+  <div class="full-width">
+     <div class="stats-container">
+       <div class="col-left">
+        <h2>{{ section.settings.heading }}</h2>
+        <p>{{ section.settings.description }}</p>
+       </div>
+       <div class="col-right">
+         {% for block in section.blocks %}
+          <div class="stats-fields" id="{{ block.settings.name | downcase }}-stat">
+            {% if block.settings.name == 'Monthly Payments' %}
+                <p class="stats-count"><span id="{{ block.settings.name | downcase }}-plus">{{ block.settings.plus }}</span>+</p>
+            {% else %}
+                <p  class="stats-count"><span id="{{ block.settings.name | downcase }}-percentage">{{ block.settings.percentage }}</span>%</p>
+            {% endif %}
+          <p class="stats-name">{{ block.settings.name }}</p>
+        </div>
+    {% endfor %}
+     </div>
+     </div>
+  </div>
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Function to animate counter
+    function animateCounter(element, endValue) {
+        let startValue = 0;
+        const duration = 2000; // Animation duration in milliseconds
+        const stepTime = 10; // Time between steps in milliseconds
+        const steps = Math.ceil(duration / stepTime);
+        const increment = endValue / steps;
+
+        const interval = setInterval(function () {
+            startValue += increment;
+            if (startValue >= endValue) {
+                startValue = endValue;
+                clearInterval(interval);
+            }
+            element.textContent = Math.floor(startValue);
+        }, stepTime);
+    }
+
+    // Function to handle intersection observer
+    function handleIntersection(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                const percentage = element.querySelector('span[id$="-percentage"]');
+                const plus = element.querySelector('span[id$="-plus"]');
+                
+                if (percentage) {
+                    const endValue = parseInt(percentage.textContent, 10);
+                    animateCounter(percentage, endValue);
+                }
+                
+                if (plus) {
+                    const endValue = parseInt(plus.textContent, 10);
+                    animateCounter(plus, endValue);
+                }
+                
+                observer.unobserve(element); // Stop observing after animation
+            }
+        });
+    }
+
+    // Set up intersection observer
+    const observer = new IntersectionObserver(handleIntersection, {
+        threshold: 0.1 // Adjust based on when you want the animation to trigger
+    });
+
+    // Observe each stat element
+    document.querySelectorAll('.stat').forEach(stat => {
+        observer.observe(stat);
+    });
+});
+</script>
+
+{% schema %}
+
+{
+  "name": "Technology Stats",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Technology Stats"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Technology Name",
+          "default": "HTML"
+        },
+        {
+          "type": "number",
+          "id": "percentage",
+          "label": "Percentage (for non Monthly Payments)",
+          "default": 0
+        },
+        {
+          "type": "number",
+          "id": "plus",
+          "label": "Plus (only for Monthly Payments)",
+          "default": 0
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Technology Stats",
+      "category": "Custom"
+    }
+  ]
+}
+
+
+{% endschema %}

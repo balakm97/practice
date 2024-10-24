@@ -1,0 +1,119 @@
+{{ 'custom-section-flexifloor-calculator.css' | asset_url | stylesheet_tag }}
+<div class="section-container">
+  <div class="page-width row">
+    <div class="section-inner-wrapper">
+      <div class="main-heading">
+          {% if section.settings.title != blank %}
+          <h4 class="section-heading h2">{{ section.settings.title }}</h4>
+          {% endif %}
+          {% if section.settings.desc != blank %}
+        <div class="desc">
+          {{ section.settings.desc }}
+        </div>
+            {% endif %}
+      </div>
+      <div class="calculator-container">
+        <form id="flexifloor-calculator" class="calculator-form">
+    <div class="form-group">
+        <label for="measurement-unit">What do you measure in?</label>
+      <div class="unit-dropdown input-wrapper">
+        <span class="drop-down-icon">{% render 'drop-down-arrow' %}</span>
+        <select id="measurement-unit" name="measurement-unit">
+            <option value="mm">mm</option>
+            <option value="cm">cm</option>
+            <option value="m">m</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="product-type">Select Product Type</label>
+       <div class="product-type-dropdown input-wrapper">
+        <span class="drop-down-icon">{% render 'drop-down-arrow' %}</span>
+        <select id="product-type" name="product-type">
+            <option value="flexifloor-tiles">Flexifloor Tiles</option>
+            <option value="other">Flexifloor Tiles</option>
+        </select>
+       </div>
+    </div>
+<div class="form-group multi-group">
+  <div class="sub-group">
+  <div class="input-wrapper">
+    <label for="room-length">Room Length</label>
+    <div class="input-container">
+        <input type="number" id="room-length" name="room-length" placeholder="1000" required>
+        <span class="unit-label">mm</span>
+    </div>
+  </div>
+
+       <div class="input-wrapper">
+        <label for="room-width">Room Width</label>
+        <div class="input-container">
+        <input type="number" id="room-width" name="room-width" placeholder="1000" required>
+           <span class="unit-label" id="width-unit-label">mm</span>
+        </div>
+      </div>
+  </div>
+  <span class="divider">OR</span>
+  <div class="sub-group">
+    <div class="input-wrapper">
+        <label for="room-width">Full Square Footage:</label>
+        <div class="input-container">
+        <input type="number" id="room-full-square" name="room-width" placeholder="1000" required>
+           <span class="unit-label" id="square-unit-label">mm<sup>2</sup></span>
+        </div>
+      </div>
+  </div>
+</div>
+    <button type="submit" class="btn-calculate button button--primary btn-primary btn-primary-hover">Calculate Now</button>
+</form>
+
+<div id="calculation-result" class="result">
+  <div class="calculation-inner">
+    <div class="result-container">
+      <div class="output-1"v>
+        <h5>You Need </h5>
+        <p class="package"> 4 Packages</p>
+    </div>
+      <div class="output-2"v>
+        <h5 class="total-value-title">You Need </h5>
+        <p class="total-value"> 4 Packages</p>
+    </div>
+  </div>
+   <a class="button button--primary btn-primary btn-primary-hover" href="#">
+     Shop Now
+   </a>
+    <button class="re-calc">
+       Calculate Again <span class="icon">{% render 'referesh-icon' %}</span>
+    </button>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Custom section calculator",
+    "tag": "section",
+     "class": "custom-calculator",
+    "settings": [
+      {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Measure Your Room",
+      "label": "Title"
+    },
+      {
+      "type": "inline_richtext",
+      "id": "desc",
+      "default": "Need help to calculate?",
+      "label": "Description"
+    },
+    ],
+    "presets": [
+    {
+      "name": "Custom section calculator"
+    }
+  ]
+  }
+{% endschema %}

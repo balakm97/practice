@@ -1,0 +1,80 @@
+{{ 'custom-section-collection-text-box.css' | asset_url | stylesheet_tag }}
+<div class="section-container">
+  <div class="row">
+  <div class="section-heading">
+      <h2 class="section-main-heading">{{- collection.title | escape -}} </h2>
+    </div>
+     {% if section.blocks.size !=0 %}
+    <div class="tex-box-container">
+      <div class="tex-box-inner-wrapper small-hide">
+  {%- for block in section.blocks -%}
+    <div class="text-box-item">
+      {% unless block.settings.box-title == "" %}
+        <h5 class="content-title">{{ block.settings.box-title }}</h5>
+      {% endunless %}
+      {% unless block.settings.description == "" %}
+        <div class="content-description">
+          <p>{{ block.settings.description  }}</p></div>
+        {% endunless %}
+    </div>
+  {%- endfor -%}
+        {% endif %}
+</div>
+      {% if section.blocks.size !=0 %}
+      <marquee width="100%" loop="-1" direction="right"  class="mobile-maqrquee"> 
+      <div class="tex-box-inner-wrapper">
+     {%- for block in section.blocks -%}
+        {% if section.blocks.size !=0 %}
+         <div class="text-box-item">
+        {% unless block.settings.box-title == "" %}
+        <h5 class="content-title">{{ block.settings.box-title }}</h5>
+        {% endunless %}
+        {% unless block.settings.description == "" %}
+        <div class="content-description">
+          <p>{{ block.settings.description  }}</p></div>
+        {% endunless %}
+    </div>
+             {% endif %}
+           {% endfor %}
+    </div>
+</marquee>
+         {% endif %}
+</div>
+  </div>
+  </div>
+  
+
+{% schema %}
+  {
+    "name": "Collection Text Box",
+    "tag" : "section",
+    "class": "collection-text-box",
+    "settings": [],
+     "blocks": [
+    {
+      "type": "blocks",
+      "name": "Blocks",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "box-title",
+          "default": "6 Perfect Shades",
+          "label": "Block Title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "default": "<p>Expertly curated shades designed to bring elegance and warmth to any space.</p",
+          "label": "Description"
+        },
+      ],
+    }
+     ],
+    "presets": [
+    {
+      "name": "Collection Text Box",
+  }
+    ]
+  }
+{% endschema %}

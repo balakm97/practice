@@ -1,0 +1,207 @@
+.custom-flooring-solution .main-heading {
+  color: #000;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  margin: 0 0 40px;
+}
+.custom-flooring-solution .main-heading span {
+  color: #2783D2;
+}
+.flooring-tabs ul {
+    display: inline-flex;
+    border-radius: 100px;
+    background: #FAFAFA;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.flooring-tabs ul li {
+  display: flex;
+  padding: 15px 25px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  flex: 1 0 auto;
+}
+.flooring-tabs ul li.active {
+  background: #2783D2;
+}
+.flooring-tabs ul li a {
+  color: #191919;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+.flooring-tabs ul li.active a {
+  color: #FFF;
+}
+.flooring-tab-content table {
+  box-shadow: none;
+}
+.flooring-tab-content table th,
+.flooring-tab-content table td {
+  border: 0.1rem solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 30px;
+}
+
+.flooring-tab-content table tbody tr td:first-child,
+.flooring-tab-content table thead tr th:first-child {
+  background: #2783d2;
+  color: #fff;
+  border: 0.1rem solid rgba(255, 255, 255, 0.3);
+}
+.flooring-tab-content table thead tr th:first-child {
+  border-radius: 10px 10px 0 0;
+  width: 40%;
+  max-width: 40%;
+}
+.flooring-tab-content table tbody tr:last-child td:first-child {
+  border-radius: 0 0 10px 10px;
+}
+.flooring-tab-content table th,
+.flooring-tab-content table td {
+  border-right: 0px;
+  border-left: 0px;
+}
+.flooring-tab-content table thead tr th {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28.8px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.20);
+  padding: 30px;
+   width: 20%;
+  max-width: 20%;
+}
+.flooring-tab-content table thead tr th:first-child {
+  color: white;
+}
+.flooring-tab-content table tbody tr td:not(:first-child) .svg-icon {
+  display: none;
+}
+.flooring-tab-content .tbody-content p {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  margin: 0;
+  color: #000;
+}
+.flooring-tab-content table tbody tr td:first-child p {
+  color: #fff;
+}
+.flooring-tab-content .tbody-content {
+    display: flex;
+    align-items: center;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+.flooring-tab-content .tbody-content .svg-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background: #fff3;
+    min-width: 40px;
+    max-width: 40px;
+}
+.flooring-tab-content .tbody-content .svg-icon svg {
+    width: 16px;
+    height: 16px;
+}
+@media only screen and (max-width: 1441px) {
+  .flooring-tab-content table thead tr th:first-child {
+    width: 28%;
+    max-width: 28%;
+  }
+  .flooring-tab-content table thead tr th {
+    width: 20.1%;
+    max-width: 20.1%;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .flooring-tab-content .row {
+    padding: 0 0 0 75px;
+  }
+  .flooring-tab-content table thead tr th:first-child {
+    max-width: 280px;
+    width: 410px;
+    min-width: 280px;
+  }
+  .flooring-tab-content .table-wrapper {
+    -webkit-overflow-scrolling: touch;
+    padding: 0 0 40px 0;
+    border-radius: 5px;
+    overflow-x: auto;
+    -ms-scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
+  }
+  .flooring-tab-content .table-wrapper::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .flooring-tab-content .table-wrapper::-webkit-scrollbar {
+    height: 4px;
+    background-color: #f5f5f5;
+    margin: 2px;
+  }
+
+  .flooring-tab-content .table-wrapper::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #2783d2;
+  }
+}
+@media screen and (max-width: 767px) {
+  .flooring-tab-content table thead tr th {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.4px;
+    padding: 30px 20px;
+  }
+  .flooring-tab-content table thead tr th {
+    max-width: 280px;
+    width: 100%;
+    min-width: 280px;
+  }
+  .flooring-tab-content .row {
+    padding: 0 0 0 20px;
+  }
+  .flooring-tab-content .table-wrapper {
+  }
+  .flooring-tab-content .tbody-content .svg-icon svg {
+    width: 12px;
+    height: 12px;
+  }
+  .flooring-tab-content .tbody-content .svg-icon {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    max-width: 30px;
+  }
+  .flooring-tab-content table th,
+  .flooring-tab-content table td {
+    padding: 20px;
+  }
+  .flooring-tab-content .section-container {
+    padding: 60px 0;
+  }
+  .flooring-tab-content .table-wrapper {
+    margin-right: -20px;
+  }
+  .custom-flooring-solution .main-heading {
+    text-align: center;
+  }
+}

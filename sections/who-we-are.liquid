@@ -1,0 +1,109 @@
+<section class="who-we-are-sec section-padding">
+  <div class="full-width">
+    <div class="who-we-flex">
+      <div class="who-we-left">
+         <h4 class="heading">{{ section.settings.heading_text }}</h4>
+      </div>
+      <div class="who-we-right">
+       <div class="sub-text"><h3>{{ section.settings.subheading_text }}</h3></div>
+       <div class="who-we-products">
+        <div class="product-block">
+         <div class="who-we-pdp-img">
+          <img src="{{ section.settings.product_1_image | img_url: '400x400' }}" alt="Product 1">
+        </div>
+         <div class="who-we-desc">
+          <h4 class="who-pdp-title">{{ section.settings.product_1_title }}</h4>
+          <p>{{ section.settings.product_1_description }}</p>
+          <div class="who-pdp-link">
+            <a href="{{ section.settings.product_1_link }}" class="mt-4 inline-block bg-black text-white py-2 px-4">Shop Now →</a>
+          </div>
+          </div>
+      </div>
+
+     
+     <div class="product-block">
+      <div class="who-we-pdp-img">
+        <img src="{{ section.settings.product_2_image | img_url: '400x400' }}" alt="Product 1">
+      </div>
+     <div class="who-we-desc">
+        <h4 class="who-pdp-title">{{ section.settings.product_2_title }}</h4>
+        <p>{{ section.settings.product_2_description }}</p>
+        <div class="who-pdp-link">
+          <a href="{{ section.settings.product_2_link }}" class="mt-4 inline-block bg-black text-white py-2 px-4">Shop Now →</a>
+        </div>
+      </div>
+    </div>
+        
+    </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "who-we-are section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading Text",
+      "default": "Our passion is to offer you top-notch flooring that combines superior aesthetics with unparalleled durability."
+    },
+    {
+      "type": "richtext",
+      "id": "subheading_text",
+      "label": "Subheading Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_1_image",
+      "label": "Product 1 Image"
+    },
+    {
+      "type": "text",
+      "id": "product_1_title",
+      "label": "Product 1 Title",
+      "default": "Flexifloor Hardwood"
+    },
+    {
+      "type": "textarea",
+      "id": "product_1_description",
+      "label": "Product 1 Description",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "type": "url",
+      "id": "product_1_link",
+      "label": "Product 1 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_2_image",
+      "label": "Product 2 Image"
+    },
+    {
+      "type": "text",
+      "id": "product_2_title",
+      "label": "Product 2 Title",
+      "default": "Flexifloor Tiles"
+    },
+    {
+      "type": "textarea",
+      "id": "product_2_description",
+      "label": "Product 2 Description",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "type": "url",
+      "id": "product_2_link",
+      "label": "Product 2 Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "who-we-are section"
+    }
+  ]
+}
+{% endschema %}

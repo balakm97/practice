@@ -1,0 +1,56 @@
+{{ 'custom-section-designer-contact-form.css' | asset_url | stylesheet_tag }}
+
+<div class="designers-contact-form section-padding">
+  <div class="page-width">
+    <div class="contact-block-wrapper">
+      <div class="contact-info">
+        <div class="contact-info-wrapper">
+          <div class="subtitle">How To Work With Us</div>
+          <h2 class="main-heading h2">Torem ipsum dolor sit amet, consectetur adipiscing elit. </h2>
+          <div class="info-content">
+            <div class="info-block">
+              <span class="step">.01</span>
+              <p class="desc">Corem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.</p>
+            </div>
+            <div class="info-block">
+              <span class="step">.02</span>
+              <p class="desc">Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia.</p>
+            </div>
+            <div class="info-block">
+              <span class="step">.03</span>
+              <p class="desc">Corem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <div class="subtitle">Fill the Form to Get Started</div>
+        <div class="form-container">
+          <form action="/">
+            <div class="name-fields">
+                <input type="text" id="first-name" name="first-name" placeholder="First Name">
+                <input type="text" id="last-name" name="last-name" placeholder="Last Name">
+            </div>
+            <input type="email" id="email" name="email" placeholder="E-mail">
+            <input type="tel" id="phone" name="phone" placeholder="Phone">
+            <textarea id="message" name="message" placeholder="Message"></textarea>
+            <div class="submit-button">
+              <a href="/" class="button btn-primary btn-primary-hover btn-submit">Shop Now</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Designers Contact Form",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Designers Contact Form"
+      }
+    ]
+  }
+{% endschema %}

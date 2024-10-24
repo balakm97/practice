@@ -1,0 +1,247 @@
+{{ 'custom-section-floor-collection-table.css' | asset_url | stylesheet_tag }}
+{%- liquid
+   assign meta_sub_title = collection.metafields.ADCollBestFlooring.sub_title
+   assign meta_title = collection.metafields.ADCollBestFlooring.title
+-%}
+<div class="section-container">
+  <div class="row">
+  {% if meta_sub_title != blank or meta_title != blank %}
+  <div class="section-heading">{% if meta_sub_title != blank %}
+    <div class="sub-title">{{ meta_sub_title }}</div>{% endif %}
+    {% if meta_title != blank %}
+      {% assign temp_meta_title = meta_title %}
+      {% if meta_title contains '__' %}
+        {% assign temp_meta_title = temp_meta_title | split:'__' %}
+        {% assign loopend = false %}
+        {% for text in temp_meta_title %}
+          {% assign length = forloop.length %}
+          {% assign next_index = forloop.index | plus: 1 %}
+          {% capture temp  %}
+            {{ temp }}
+            {{ text }}{% if loopend == true %}</span>{% if next_index != length and forloop.index < length %}{{ length }}--{{ next_index }}{% assign loopend = false %}{% endif %}{% endif %}
+            {% unless forloop.last %}{% if loopend == false %}<span class="heading-highlight">{% assign loopend = true %}{% endif %}{% endunless %}
+          {% endcapture %}
+        {% endfor %}
+        {% assign meta_title = temp %}
+      {% endif %}
+    <h2 class="section-main-heading">{{ meta_title }}</h2>
+    {% endif %}
+    </div>
+    {% endif %}
+              <div class="scroll-container">
+    <div class="table-wrapper">
+<table border="1">
+  <thead>
+    <tr>
+       {%- for block in section.blocks -%}
+      <th>{{ block.settings.column-Heading }}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+     {% if section.settings.number_of_rows >= 1 %}
+    <tr>
+       {%- for block in section.blocks -%}
+      <td><div class="tbody-content"> {% if block.settings.svg-icon-1 != blank  %}<span class="svg-icon">{{ block.settings.svg-icon-1 }}</span>{% endif %}<p>{{ block.settings.table-data-1 }}</p></div></td>
+      {% endfor %}
+    </tr>
+       {% endif %}
+     {% if section.settings.number_of_rows >= 2 %}
+    <tr>
+       {%- for block in section.blocks -%}
+      <td><div class="tbody-content"> {% if block.settings.svg-icon-2 != blank  %}<span class="svg-icon">{{ block.settings.svg-icon-2 }}</span>{% endif %}<p>{{ block.settings.table-data-2 }}</p></div></td>
+      {% endfor %}
+    </tr>
+          {% endif %}
+     {% if section.settings.number_of_rows >= 3 %}
+    <tr>
+       {%- for block in section.blocks -%}
+      <td><div class="tbody-content"> {% if block.settings.svg-icon-3 != blank  %}<span class="svg-icon">{{ block.settings.svg-icon-3 }}</span>{% endif %}<p>{{ block.settings.table-data-3 }}</p></div></td>
+      {% endfor %}
+    </tr>
+          {% endif %}
+     {% if section.settings.number_of_rows >= 4 %}
+    <tr>
+       {%- for block in section.blocks -%}
+      <td><div class="tbody-content"> {% if block.settings.svg-icon-4 != blank  %}<span class="svg-icon">{{ block.settings.svg-icon-4 }}</span>{% endif %}<p>{{ block.settings.table-data-4 }}</p></div></td>
+      {% endfor %}
+    </tr>
+          {% endif %}
+     {% if section.settings.number_of_rows >= 5 %}
+    <tr>
+       {%- for block in section.blocks -%}
+      <td><div class="tbody-content"> {% if block.settings.svg-icon-5 != blank  %}<span class="svg-icon">{{ block.settings.svg-icon-5 }}</span>{% endif %}<p>{{ block.settings.table-data-5 }}</p></div></td>
+      {% endfor %}
+    </tr>
+          {% endif %}
+  </tbody>
+</table>
+    </div>
+    <div class="custom-scrollbar">
+    <div class="custom-thumb"></div>
+    </div>
+    </div>
+
+  </div>
+</div>
+<script>
+  // Select DOM elements
+const scrollContainer = document.querySelector('.table-wrapper');
+const customScrollbar = document.querySelector('.custom-scrollbar');
+const customThumb = document.querySelector('.custom-thumb');
+
+// Set the thumb width dynamically based on the scrollable content
+const updateThumbWidth = () => {
+  const scrollRatio = scrollContainer.clientWidth / scrollContainer.scrollWidth;
+  customThumb.style.width = `${scrollRatio * 100}%`;
+};
+
+// Initialize thumb position
+const updateThumbPosition = () => {
+  const scrollLeftRatio = scrollContainer.scrollLeft / (scrollContainer.scrollWidth - scrollContainer.clientWidth);
+  customThumb.style.left = `${scrollLeftRatio * 100}%`;
+  customThumb.style.transform = `translateX(-${scrollLeftRatio * 100}%)`;
+};
+
+// Dragging functionality
+let isDragging = false;
+let startX, scrollLeftStart;
+
+customThumb.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  startX = e.pageX;
+  scrollLeftStart = scrollContainer.scrollLeft;
+  customThumb.style.cursor = 'grabbing';
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  const moveX = e.pageX - startX;
+  const scrollRatio = scrollContainer.scrollWidth / customScrollbar.clientWidth;
+  scrollContainer.scrollLeft = scrollLeftStart + moveX * scrollRatio;
+  updateThumbPosition();
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  customThumb.style.cursor = 'grab';
+});
+
+// Sync scrollbar thumb with scrollContainer's scrolling
+scrollContainer.addEventListener('scroll', updateThumbPosition);
+
+// Initial setup on load
+window.addEventListener('resize', () => {
+  updateThumbWidth();
+  updateThumbPosition();
+});
+
+// Initialize on page load
+updateThumbWidth();
+
+</script>
+
+{% schema %}
+  {
+    "name": "Floor Collection Table",
+    "tag": "section",
+    "class": "custom-collection-table",
+    "settings": [
+       {
+      "type": "range",
+      "id": "number_of_rows",
+      "label": "Number of Rows",
+      "default": 5,
+      "min": 1,
+      "max": 5
+    },
+    ],
+    "blocks": [
+    {
+      "type": "columns",
+      "name": "Columns",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "column-Heading",
+          "label": "Column Heading",
+          "default": "Flexifloor Tiles",
+        },
+        {
+          "type": "header",
+          "content": "Table Data"
+        },
+        {
+          "type": "textarea",
+          "id": "table-data-1",
+          "default": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+          "label": "Table Data Text 1"
+        },
+        {
+          "type": "html",
+          "id": "svg-icon-1",
+          "label": "SVG ICON 1",
+          "info": "Copy and Paste your icon code here"
+        },
+        {
+          "type": "textarea",
+          "id": "table-data-2",
+          "default": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+          "label": "Table Data Text 2"
+        },
+        {
+          "type": "html",
+          "id": "svg-icon-2",
+         "label": "SVG ICON 2",
+          "info": "Copy and Paste your icon code here"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "table-data-3",
+          "default": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+          "label": "Table Data Text 3"
+        },
+        {
+          "type": "html",
+          "id": "svg-icon-3",
+         "label": "SVG ICON 3",
+          "info": "Copy and Paste your icon code here"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "table-data-4",
+          "default": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+          "label": "Table Data Text 4"
+        },
+         {
+          "type": "html",
+          "id": "svg-icon-4",
+         "label": "SVG ICON 4",
+          "info": "Copy and Paste your icon code here"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "table-data-5",
+          "default": "Integer scelerisque, ac rutrum odio mattis. Aenean lobortis taciti.",
+          "label": "Table Data Text 5"
+        },
+         {
+          "type": "html",
+          "id": "svg-icon-5",
+          "label": "SVG ICON 5",
+          "info": "Copy and Paste your icon code here"
+        }
+        
+      ]
+    }
+  ],
+    
+    "presets": [
+    {
+      "name": "Floor Collection Table",
+  }
+    ]
+  }
+    
+{% endschema %}

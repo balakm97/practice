@@ -1,0 +1,79 @@
+
+ <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>  
+ <script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js" defer="defer"></script>
+     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer="defer"></script> 
+<div class="carousel-section section-padding">
+  <div class="custom-product-slider">
+    {% for block in section.blocks %}
+      <div class="carousel-item">
+        {% assign product = all_products[block.settings.product] %}
+
+        <!-- Display the image -->
+        <a class="main-image-data" {% if product %} href="{{ product.url }}" {% endif %}>
+          <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.alt_text }}">
+        </a>
+
+        <!-- Only show product details if a product is selected -->
+        {% if product %}
+        <div class="product-details">
+          <div class="product-image">
+            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+          </div>
+          <div class="product-infos">
+          <p>{{ product.title }}</p>
+          
+          {% if product.selected_or_first_available_variant %}
+            <!-- <p>{{ product.selected_or_first_available_variant.option1 }}</p> -->
+            <p class="product-prices">{{ product.selected_or_first_available_variant.price | money }}</p>
+            
+            {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+              <p>Compare at: <span class="compare-at-price">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span></p>
+            {% endif %}
+          {% endif %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Product Carousel Section",
+  "class": "product-carousel-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Carousel Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+

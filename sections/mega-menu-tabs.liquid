@@ -1,0 +1,85 @@
+<div class="mega-menu">
+  <!-- Tabs -->
+  <ul class="mega-menu-tabs">
+    {% assign tabs = section.blocks | where: 'type', 'tab' %}
+    {% for tab in tabs %}
+      <li class="tab {% if forloop.first %}active{% endif %}" data-tab="tab{{ tab.id }}">{{ tab.settings.tab_title }}</li>
+    {% endfor %}
+  </ul>
+
+  <!-- Tab Contents -->
+  <div class="mega-menu-content">
+    {% for tab in tabs %}
+      <div class="tab-content {% if forloop.first %}active{% endif %}" id="tab{{ tab.id }}">
+        <ul>
+          {% assign links = section.blocks | where: 'tab_id', tab.id %}
+          {% for link in links %}
+            <li><a href="{{ link.settings.link_url }}">{{ link.settings.link_text }}</a></li>
+          {% else %}
+            <li>No links available</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- JavaScript for Tab Functionality -->
+<script>
+  $(document).ready(function() {
+    // Handle tab clicks
+    $('.mega-menu-tabs .tab').on('click', function() {
+      // Remove active class from all tabs and contents
+      $('.mega-menu-tabs .tab').removeClass('active');
+      $('.mega-menu-content .tab-content').removeClass('active');
+
+      // Add active class to clicked tab and corresponding content
+      var tabId = $(this).data('tab');
+      $(this).addClass('active');
+      $('#tab' + tabId).addClass('active');
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Mega Menu",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title"
+        }
+      ]
+    },
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        }
+       
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

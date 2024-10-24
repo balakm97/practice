@@ -1,0 +1,32 @@
+{{ 'custom-section-image-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="custom-image-banner section-padding">
+  <div class="page-width">
+    <div class="image-banner-wrapper">
+      <div class="banner-content">
+        <div class="banner-content-wrapper">
+          <div class="subtitle">Extended Warranty Offering</div>
+          <h2 class="main-heading h1">Torem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</h2>
+          <p class="desc">Corem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit.</p>
+          <a href="/" class="button btn-primary btn-primary-hover small-hide">Shop Now</a>
+        </div>
+      </div>
+      <div class="banner-image">
+        <div class="image"><img src="https://cdn.shopify.com/s/files/1/0655/2610/4256/files/image-banner.png?v=1727247377" height="auto" width="auto"></div>
+      </div>
+      <a href="/" class="button btn-primary btn-primary-hover large-up-hide medium-hide">Shop Now</a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Custom Image Banner",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Custom Image Banner"
+      }
+    ]
+  }
+{% endschema %}

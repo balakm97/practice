@@ -1,0 +1,33 @@
+{{ 'custom-specification-section.css' | asset_url | stylesheet_tag }}
+
+<div class="specifications-section">
+  <div class="specifications-content">
+    <h3 class="section-heading">Specifications</h3>
+    <ul class="specifications-list">
+      <li><span>Thickness:</span> <span  class="strong">12.5mm </span></li>
+      <li><span>Wear Layer:</span> <span  class="strong"> 0.55mm </span></li>
+      <li><span>Pack Coverage:</span>  <span  class="strong"> 4.30m²</span></li>
+      <li><span>Board Length:</span> <span  class="strong"> 457.2mm</span></li>
+      <li><span>Board Width:</span> <span  class="strong"> 25.0mm</span></li>
+      <li><span>Texture:</span> <span  class="strong"> Wood</span></li>
+      <li><span>Joining Mechanism:</span>  <span  class="strong" >Stick</span></li>
+      <li><span>Pieces per Package:</span> <span  class="strong"> 12</span></li>
+    </ul>
+  </div>
+  <div class="specification-image">
+    <img src="https://cdn.shopify.com/s/files/1/0655/2610/4256/files/Frame_5536_3.png?v=1727093641" alt="Specification Image" />
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Custom specification",
+    "settings": [
+      
+    ],
+       "presets": [
+    {
+      "name": "Custom specification section"
+    }
+  ] 
+  }
+{% endschema %}

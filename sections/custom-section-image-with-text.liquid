@@ -1,0 +1,100 @@
+{{ 'custom-section-image-with-text.css' | asset_url | stylesheet_tag }}
+
+<div class="custom-image-with-text section-padding">
+  <div class="page-width">
+    <div class="image-text-inner">
+      {% if section.settings.image_1 != blank %}
+        <div class="image-text-wrapper">
+          {% if section.settings.image_1 != blank %}<div class="image"><img src="{{ section.settings.image_1 | image_url }}" height="auto" width="auto"></div>{% endif %}
+          {% if section.settings.sort_description_1 != blank %}
+            <div class="sort-description">
+              <p>{{ section.settings.sort_description_1 }}</p>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.image_2 != blank %}
+        <div class="image-text-wrapper">
+          {% if section.settings.image_2 != blank %}<div class="image"><img src="{{ section.settings.image_2 | image_url }}" height="auto" width="auto"></div>{% endif %}
+          {% if section.settings.sort_description_2 != blank %}
+            <div class="sort-description">
+              <p>{{ section.settings.sort_description_2 }}</p>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.image_3 != blank %}
+        <div class="image-text-wrapper">
+          {% if section.settings.image_3 != blank %}<div class="image"><img src="{{ section.settings.image_3 | image_url }}" height="auto" width="auto"></div>{% endif %}
+          {% if section.settings.sort_description_3 != blank %}
+            <div class="sort-description">
+              <p>{{ section.settings.sort_description_3 }}</p>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Image With Text",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image Banner 1"
+    },
+    {
+      "type": "image_picker",
+      "label": "Image 1",
+      "id": "image_1"
+    },
+    {
+      "type": "html",
+      "label": "Sort Description",
+      "id": "sort_description_1",
+      "placeholder": "Customization in Your Hands Horem ipsum dolor sit amet, consectetur adipiscing elit. "
+    },
+    {
+      "type": "header",
+      "content": "Image Banner 2"
+    },
+    {
+      "type": "image_picker",
+      "label": "Image 2",
+      "id": "image_2"
+    },
+    {
+      "type": "html",
+      "label": "Sort Description",
+      "id": "sort_description_2",
+      "placeholder": "Customization in Your Hands Horem ipsum dolor sit amet, consectetur adipiscing elit. "
+    },
+    {
+      "type": "header",
+      "content": "Image Banner 3"
+    },
+    {
+      "type": "image_picker",
+      "label": "Image 2",
+      "id": "image_3"
+    },
+    {
+      "type": "html",
+      "label": "Sort Description",
+      "id": "sort_description_3",
+      "placeholder": "Customization in Your Hands Horem ipsum dolor sit amet, consectetur adipiscing elit. "
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Custom Image With Text"
+    }
+  ]
+}
+{% endschema %}

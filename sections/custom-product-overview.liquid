@@ -1,0 +1,118 @@
+{{ 'custom-product-overview.css' | asset_url | stylesheet_tag }}
+{% assign meta_size = shop.metafields.accentuate.description_tab_title | size %}
+
+{% capture section_data %}
+  {%- if meta_size > 0 -%}
+    {% assign display_section = false %}
+    {%- for meta_data in shop.metafields.accentuate.description_tab_title -%}
+      
+      {% assign meta_tags = shop.metafields.accentuate.product_tags[forloop.index0] | split:',' %}
+      {%- for tag in product.tags -%}
+        {%- for shop_tag in meta_tags -%}
+          {%- if shop_tag == tag -%}
+            {%- assign display_section = true -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if display_section == true -%}{%- break -%}{%- endif -%}
+      {%- endfor -%}
+
+      {%- if display_section == true -%}
+        {%- if meta_data != blank -%}
+          <div class="section-product">
+            <h2 class="section-heading">{{ meta_data }}</h2>
+            {%- if shop.metafields.accentuate.description_tab_content[forloop.index0] -%}
+              {{ shop.metafields.accentuate.description_tab_content[forloop.index0] | replace:'<p','<p class="section-description"' }}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+  
+        {%- if shop.metafields.accentuate.care_details_tab_title[forloop.index0] != blank -%}
+          <div class="section-product">
+            <h2 class="section-heading">{{ shop.metafields.accentuate.care_details_tab_title[forloop.index0] }}</h2>
+            {%- if shop.metafields.accentuate.care_details_tab_content[forloop.index0] -%}
+              {{ shop.metafields.accentuate.care_details_tab_content[forloop.index0] | replace:'<p','<p class="section-description"' }}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{% endcapture %}
+
+{% if section_data != blank %}
+  <div class="custom-product-overview">
+    {% if section.settings.title != blank %}
+    <div class="product-overview">
+      <h2 class="product-heading">{{ section.settings.title }}</h2>
+    </div>
+    {% endif %}
+    <div class="custom-product-details">
+      {{ section_data }}
+    </div>
+  </div>
+{% endif %}
+
+{% comment %}
+<div class="custom-product-overview">
+  <div class="product-overview">
+      <h2 class="product-heading">Product Overview</h2>
+  </div>
+  <div class="custom-product-details">
+    <div class="section-product">
+      <h2 class="section-heading">Description</h2>
+      <p class="section-description">
+          Borem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+      </p>
+      <p class="section-description">
+        Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
+      </p>
+    </div>
+    <div class="section-product collapsed" id="description">
+      <h2 class="section-heading">Care & Guides</h2>
+      <p class="section-description "  >
+          Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. 
+      </p>
+      <p class="section-description">
+         Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia.
+      </p>
+    </div>
+   <button id="read-more-btn" onclick="toggleContent()" class="desktop-hide">Read More {% render 'custom-arrow-up' %}</button>
+  </div>
+</div>
+{% endcomment %}
+
+<script>
+  function toggleContent() {
+    const description = document.getElementById("description");
+    const button = document.getElementById("read-more-btn");
+
+    if (description.classList.contains("collapsed")) {
+        description.classList.remove("collapsed");
+        description.classList.add("expanded");
+      
+    } else {
+        description.classList.remove("expanded");
+        description.classList.add("collapsed");
+       
+    }
+}
+</script>
+
+{% schema %}
+  {
+    "name": "Custom product overview",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom product overview"
+      }
+    ]  
+  }
+{% endschema %}

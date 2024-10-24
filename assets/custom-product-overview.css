@@ -1,0 +1,155 @@
+.custom-product-overview{
+    display:flex; 
+    /* max-width: 1770px;
+    margin: 0 auto; */
+    padding: 150px 75px;
+    gap:30px;
+  justify-content:space-between; 
+}
+
+.product-overview {
+   
+    padding: 20px;
+    grid-column: span 1;
+}
+
+.product-details {
+  
+    padding: 20px;
+    grid-column: span 1; 
+}
+
+.section {
+    margin-bottom: 20px;
+}
+.custom-product-details{ max-width:882px; }
+.product-heading {
+  color:#000;
+  opacity:0.2;
+font-family: "Helvetica Now Display";
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 120%;
+letter-spacing: -0.4px;
+}
+.section-heading{
+  margin-bottom:10px; 
+  color: var(--Black, #000);
+font-family: "Helvetica Now Display";
+font-size: 36px;
+font-style: normal;
+font-weight: 700;
+line-height: 100%; /* 36px */
+letter-spacing: -0.72px;
+}
+
+.section-description{
+color:#000;
+font-family: "Helvetica Now Display";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+  margin-top:15px; 
+line-height: 150%; /* 24px */
+ 
+}
+.collapsed .section-heading{ margin-top:15px; }
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Single column layout for small screens */
+    }
+
+    .product-overview, .product-details {
+        grid-column: span 1;
+    }
+}
+@media screen and (max-width:767px){
+.custom-product-overview{ padding:20px; }
+
+
+
+}
+@media screen and (max-width:989px){
+  .section-heading{
+    color: var(--Black, #000);
+/* 📱 Mobile/Header 03 */
+font-family: "Helvetica Now Display";
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: 100%; /* 32px */
+letter-spacing: -0.64px;
+  margin-top:0px;
+}
+
+.product-heading{
+font-family: "Helvetica Now Display";
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: 120%; /* 21.6px */
+letter-spacing: -0.36px;
+margin-bottom:0;
+}
+  .product-overview{ padding:0; }
+  .custom-product-overview{ flex-direction:column;}
+}
+
+
+.collapsed {
+    max-height: 220px; /* Limit the height for collapsed view */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#description.expanded {
+    max-height: none; /* Allow full content to be displayed */
+}
+
+#read-more-btn {
+ color: var(--Black, #000);
+  background:transparent;
+/* CTA / Medium */
+font-family: "Helvetica Now Display";
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 100%; /* 14px */
+letter-spacing: 0.7px;
+  border:0;
+  position:absolute;
+  left:0; 
+  right:0; 
+  margin:0 auto; 
+}
+ .expanded+#read-more-btn:before{
+  display:none;
+}
+#read-more-btn{ cursor:pointer; }
+@media screen and (min-width:990px) and (max-width:1539px){
+.custom-product-details{ max-width:629px;} }
+@media screen and (min-width:768px) and (max-width:989px){
+.custom-product-details{ max-width:100%;} }
+@media screen and (min-width:768px){
+  .desktop-hide{ display:none;}
+}
+
+ .expanded+#read-more-btn svg{ transform:rotate(180deg);}
+button#read-more-btn:before{
+      content: '';
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10rem;
+  display: flex;
+    margin: 0 auto;
+    align-items: center;
+    gap:10px; 
+    justify-content: center;
+  background:linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 59.65%);
+}
+#read-more-btn svg{width:12px; height:12px;}

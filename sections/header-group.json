@@ -1,0 +1,121 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text1": "Anouncement message here",
+            "text": "CTA Code Here",
+            "link": "shopify://collections/flexifloor-tiles"
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_meun_HazDhQ": {
+          "type": "mega_meun",
+          "settings": {
+            "menu_item": "Shop Flexifloor",
+            "menu_points": "Easy to Install \n100% Eco-Friendly\nDurable & Safe"
+          }
+        },
+        "menu_content_kww7HT": {
+          "type": "menu_content",
+          "settings": {
+            "img_title_1": "Natural Wood",
+            "image_1": "shopify://shop_images/Rectangle-46-min.png",
+            "img_detail_1": "Jorem ipsum dolor sit amet",
+            "img_title_2": "Light Cloud Beige",
+            "image_2": "shopify://shop_images/Rectangle_46-min.png",
+            "img_detail_2": "Jorem ipsum dolor sit amet",
+            "img_title_3": "Toffee Oak",
+            "image_3": "shopify://shop_images/Rectangle_46-1-min.png",
+            "img_detail_3": "Jorem ipsum dolor sit amet",
+            "img_title_4": "Cacao Brown",
+            "image_4": "shopify://shop_images/Rectangle_46-2-min.png",
+            "img_detail_4": "Jorem ipsum dolor sit amet",
+            "img_title_5": "Light Smoke Gray",
+            "image_5": "shopify://shop_images/Rectangle_46-3-min.png",
+            "img_detail_5": "Jorem ipsum dolor sit amet",
+            "img_title_6": "Dark Night Black",
+            "image_6": "shopify://shop_images/Rectangle_46-4-min.png",
+            "img_detail_6": "Jorem ipsum dolor sit amet"
+          }
+        },
+        "menu_content_VGN47E": {
+          "type": "menu_content",
+          "settings": {
+            "img_title_1": "Natural Wood 1",
+            "image_1": "shopify://shop_images/Rectangle-46-min.png",
+            "img_detail_1": "Test 1",
+            "img_title_2": "Light Cloud Beige 1",
+            "image_2": "shopify://shop_images/Rectangle_46-min.png",
+            "img_detail_2": "Test 2",
+            "img_title_3": "Toffee Oak 1",
+            "image_3": "shopify://shop_images/Rectangle_46-1-min.png",
+            "img_detail_3": "Test 3",
+            "img_title_4": "Cacao Brown 1",
+            "image_4": "shopify://shop_images/Rectangle_46-2-min.png",
+            "img_detail_4": "Test 4",
+            "img_title_5": "",
+            "img_detail_5": "",
+            "img_title_6": "",
+            "img_detail_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega_meun_HazDhQ",
+        "menu_content_kww7HT",
+        "menu_content_VGN47E"
+      ],
+      "settings": {
+        "logo_position": "middle-left",
+        "menu": "main-menu",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "enable_customer_avatar": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

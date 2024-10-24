@@ -1,0 +1,88 @@
+{{ 'custom-section-about-text-image-one.css' | asset_url | stylesheet_tag }}
+<div class="section-container">
+  <div class="page-width row">
+    <div class="section-inner-wrapper {% if section.settings.layout == 'image_first' %}row-reverse{% endif %}">
+       {% if section.settings.title != blank or section.settings.description-one != blank  or section.settings.description-two != blank or section.settings.sub-title != blank %}
+      <div class="content-container">
+        <div class="content-wrapper">
+        {% if section.settings.sub-title != blank %}<div class="section-subtitle">{{ section.settings.sub-title }}</div>{% endif %}
+        {% if section.settings.title != blank %}<h2 class="section-heading h2">{{ section.settings.title }}</h2>{% endif %}
+        {% if section.settings.description-one != blank or section.settings.description-two != blank %}
+        <div class="section-desc rte">
+        {% if section.settings.description-one %}<p>{{ section.settings.description-one }}</p> {% endif %}
+        {% if section.settings.description-one %}<p>{{ section.settings.description-two }}</p> {% endif %}
+        </div>
+        {% endif %}
+      </div>
+      </div>
+         {% endif %}
+      <div class="media-container">
+        {% if section.settings.image != blank %}
+        <div class="image">
+          <img src="{{ section.settings.image | image_url }}" height="auto" width="auto" class="img"> 
+        </div>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+      "name": "Cst Abt Text-image-one",
+      "tag": "section",
+      "class": "cst-about-text-img-one",
+    "settings": [
+          {
+          "type": "text",
+          "id": "sub-title",
+          "label": "Sub title",
+          "default": "Empowering you to DIY  "
+          },
+          {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+          },
+          {
+          "type": "text",
+          "id": "description-one",
+          "label": "Description 1",
+           "default": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. "
+          },
+          {
+          "type": "text",
+          "id": "description-two",
+          "label": "Description 2",
+          "default": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. "
+          },
+          {
+          "type": "image_picker",
+          "id":"image",
+          "label": "Image"
+          },
+          {
+          "type": "select",
+          "id": "layout",
+          "options": [
+                {
+                "value": "text_first",
+                "label": "Text First"
+                },
+                {
+                "value": "image_first",
+                "label": "Image First"
+                }
+                ],
+          "default": "text_first",
+          "label": "Image and Text Position"
+          },
+    ],
+    "blocks": [],
+    "presets": [
+    {
+    "name": "Cst Abt Text-image-one"
+    }
+  ]
+  }
+{% endschema %}

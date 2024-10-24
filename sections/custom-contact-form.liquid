@@ -1,0 +1,576 @@
+{{ 'custom-contact-form.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="custom-contact-form page-width page-width--narrow section-{{ section.id }}-padding">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.heading }}
+      </h2>
+    {%- else -%}
+      <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
+    {%- endif -%}
+
+        <section class="contact-section">
+        <div class="top-portion">
+            <div class="contact-box">
+  
+                <p><span>Call Us:</span></p>
+                <a href="tel: {{ section.settings.phone_number }}"  class="contact-link">{{ section.settings.phone_number }}</a>
+                <p><span>For any Questions:</span></p>
+                <a href="mailto: {{ section.settings.email_address }}" class="contact-link">{{ section.settings.email_address }}</a>
+            </div>
+            <div class="opening-hours">
+                <span>Opening Hours</span>
+                {{ section.settings.opening_hours  }}
+            </div>
+        </div>
+
+        <div class="bottom-portion">
+        
+       
+            <div class="card talk-to-expert">
+
+            <div class="icon mobile-hide">    
+              <span>
+                    {% render 'custom-icon-call' %}
+        
+              </span> </div>
+      <div class="contact-icon">
+        <div class="icon-group">
+         <div class="icon desktop-hide">    
+              <span>
+                    {% render 'custom-icon-call' %}
+        
+              </span> </div>
+                <h4>{{ section.settings.talk_to_expert_heading }}</h4>
+        </div>
+                <p>{{ section.settings.talk_to_expert_description }}</p>
+        
+                <a href="{{ section.settings.talk_to_expert_button_link1 }}" class="card-button mobile-hide" >{{ section.settings.talk_to_expert_button_text }}</a>
+           <a href="{{ section.settings.talk_to_expert_button_link }}" class="card-button desktop-hide" >{{ section.settings.talk_to_expert_button_text1 }} {%  render 'custom-arrow-right' %} </a>
+            </div>
+            </div>
+          
+      
+       
+       
+            <div class="card book-consultation">
+               <div class="icon mobile-hide">   
+                <span>
+                    {% render 'custom-icon-message' %}
+              </span></div>
+                <div class="contact-icon">
+                     <div class="icon-group">
+                 <div class="icon desktop-hide">   
+                <span>
+                    {% render 'custom-icon-message' %}
+              </span></div>
+                <h4>{{ section.settings.book_consultation_heading }}</h4>
+                     </div>
+                <p>{{ section.settings.book_consultation_description }}</p>
+                <a href="{{ section.settings.book_consultation_button_link }}" class="card-button desktop-hide" >{{ section.settings.book_consultation_button_text }} {%  render 'custom-arrow-right' %} </a>
+              <a href="{{ section.settings.book_consultation_button_link1 }}" class="card-button mobile-hide" >{{ section.settings.book_consultation_button_text1 }} </a>
+            </div>
+         </div>
+        </div>
+    </section>
+    <div class="contant-form-new">
+      <h2 class="contact-title">{{ section.settings.heading1 }}</h2>
+    {%- liquid
+      assign contact_form_class = 'isolate'
+      if settings.animations_reveal_on_scroll
+        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+      endif
+    -%}
+    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+      {%- if form.posted_successfully? -%}
+        <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+          {% render 'icon-success' %}
+          {{ 'templates.contact.form.post_success' | t }}
+        </h2>
+      {%- elsif form.errors -%}
+        <div class="form__message">
+          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+            {% render 'icon-error' %}
+            {{ 'templates.contact.form.error_heading' | t }}
+          </h2>
+        </div>
+        <ul class="form-status-list caption-large" role="list">
+          <li>
+            <a href="#ContactForm-email" class="link">
+              {{ form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email }}
+            </a>
+          </li>
+        </ul>
+      {%- endif -%}
+      <div class="contact__fields">
+        <div class="field">
+          <input
+            class="field__input"
+            autocomplete="name"
+            type="text"
+            id="ContactForm-name"
+            name="contact[{{ 'templates.contact.form.name' | t }}]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            placeholder="{{ 'templates.contact.form.name' | t }}" data-contact-name
+          >
+          <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+        </div>
+        <div class="field">
+          <input
+            class="field__input"
+            autocomplete="name"
+            type="text"
+            id="ContactForm-last"
+            name="contact[{{ 'templates.contact.form.name' | t }}]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            placeholder="Last name"
+            data-contact-last
+          >
+          <label class="field__label" for="ContactForm-name">Last Name</label>
+          <span class="custom-field-err hidden" data-contact-err>* This field is required</span>
+        </div>
+      </div>
+      <div class="field field--with-error">
+          <input
+            autocomplete="email"
+            type="email"
+            id="ContactForm-email"
+            class="field__input"
+            name="contact[email]"
+            spellcheck="false"
+            autocapitalize="off"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            aria-required="true"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="ContactForm-email-error"
+            {% endif %}
+            placeholder="{{ 'templates.contact.form.email' | t }}" data-contact-email
+          >
+          <label class="field__label" for="ContactForm-email">
+            {{- 'templates.contact.form.email' | t }}
+            <span aria-hidden="true">*</span></label
+          >
+          {%- if form.errors contains 'email' -%}
+            <small class="contact__field-error" id="ContactForm-email-error">
+              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+              <span class="form__message">
+                {%- render 'icon-error' -%}
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </span>
+            </small>
+          {%- endif -%}
+        </div>
+      <div class="field">
+        <input
+          type="tel"
+          id="ContactForm-phone"
+          class="field__input"
+          autocomplete="tel"
+          name="contact[{{ 'templates.contact.form.phone' | t }}]"
+          pattern="[0-9\-]*"
+          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+          placeholder="{{ 'templates.contact.form.phone' | t }}" 
+        >
+        <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+      </div>
+      <div class="field">
+        <textarea
+          rows="10"
+          id="ContactForm-body"
+          class="text-area field__input"
+          name="contact[{{ 'templates.contact.form.comment' | t }}]"
+          placeholder="{{ 'templates.contact.form.comment' | t }}" data-contact-msg
+        >
+          {{- form.body -}}
+        </textarea>
+        <label class="form__label field__label" for="ContactForm-body">
+          {{- 'templates.contact.form.comment' | t -}}
+        </label>
+      </div>
+      <div class="contact__button">
+        <button type="submit" class="button" data-contact-submit >
+          {{ 'templates.contact.form.send' | t }}
+        </button>
+      </div>
+    {%- endform -%}
+  </div>
+  </div>
+</div>
+<script>
+  //form submnit event
+  var submitBtn = document.querySelector("[data-contact-submit]") || null;
+  var form = document.querySelector("#ContactForm") || null;
+
+  var name1 = document.querySelector("[data-contact-name]") || null;
+  var name2 = document.querySelector("[data-contact-last]") || null;
+  var email = document.querySelector("[data-contact-email]") || null;
+  var msg = document.querySelector("[data-contact-msg]") || null;
+
+  var pattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
+
+  setTimeout(function(){
+    checkForErr();
+  },500);
+    
+  if(submitBtn){
+    submitBtn.addEventListener("click",function(e){
+      // console.log(e.currentTarget);
+      // console.log("submit",e.target);
+      e.preventDefault();
+      
+      //for name
+      if(name1){
+        var n = name1.value.trim();
+        if(n.length == 0){
+          name1.closest(".field").querySelector("[data-contact-err]").classList.remove("hidden");
+        }else{
+          name1.closest(".field").querySelector("[data-contact-err]").classList.add("hidden");
+        }
+      }
+  if(name2){
+        var na = name2.value.trim();
+        if(na.length == 0){
+          name2.closest(".field").querySelector("[data-contact-err]").classList.remove("hidden");
+        }else{
+          name2.closest(".field").querySelector("[data-contact-err]").classList.add("hidden");
+        }
+      }
+      //for email
+      if(email){
+        var em = email.value.trim();
+        if(em.length == 0){
+          // console.log("len",0);
+          email.closest(".field").querySelector("[data-contact-err]").innerText = 'This Field is required *';
+          email.closest(".field").querySelector("[data-contact-err]").classList.remove("hidden");
+        }else{
+          email.closest(".field").querySelector("[data-contact-err]").classList.add("hidden");
+          // var pattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
+          // console.log("pattern",email.value.match(pattern));
+          if(email.value.match(pattern)){
+            email.closest(".field").querySelector("[data-contact-err]").classList.add("hidden");
+          }
+          else{
+            // console.log("null");
+            email.closest(".field").querySelector("[data-contact-err]").innerText = 'Enter valid email format';
+            email.closest(".field").querySelector("[data-contact-err]").classList.remove("hidden");
+          }
+        }
+      }
+      
+      //for msg
+      if(msg){
+        var m = msg.value.trim();
+        if(m.length == 0){
+          msg.closest(".field").querySelector("[data-contact-err]").classList.remove("hidden");
+        }else{
+          msg.closest(".field").querySelector("[data-contact-err]").classList.add("hidden");
+        }
+      }
+
+      let errorWrap = document.querySelectorAll(".custom-field-err:not(.hidden)");
+      // console.log("errorWrap",errorWrap);
+      if(errorWrap.length == 0) form.submit();
+      // return false;
+    });
+  }
+
+  //input ON KEYUP
+  if(name1){
+    name1.addEventListener("keyup",function(){
+      // console.log("this",this.value);
+      var val = this.value.trim();
+      if(val.length > 0){
+        name1.closest(".field").querySelector("[data-contact-err]").classList.add("hidden");
+      }
+      else{
+        name1.closest(".field").querySelector("[data-contact-err]").classList.remove("hidden");
+      }
+
+      checkForErr();
+    });
+  }
+  if(name2{
+    name2.addEventListener("keyup",function(){
+      // console.log("this",this.value);
+      var val = this.value.trim();
+      if(val.length > 0){
+        name2.closest(".field").querySelector("[data-contact-err]").classList.add("hidden");
+      }
+      else{
+        name2.closest(".field").querySelector("[data-contact-err]").classList.remove("hidden");
+      }
+
+      checkForErr();
+    });
+  }
+  if(email){
+    email.addEventListener("keyup",function(){
+      // console.log("this",this.value);
+      var val = this.value.trim();
+      if(val.length > 0){
+        // email.closest(".field").querySelector("[data-contact-err]").classList.add("hidden");
+        // if(email.value.match(pattern)){
+        //   email.closest(".field").querySelector("[data-contact-err]").classList.add("hidden");
+        // }
+        // else{
+        //   // console.log("null");
+        //   email.closest(".field").querySelector("[data-contact-err]").innerText = 'Enter valid email format';
+        //   email.closest(".field").querySelector("[data-contact-err]").classList.remove("hidden");
+        // }
+        email.closest(".field").querySelector("[data-contact-err]").classList.add("hidden");
+      }
+      else{
+        email.closest(".field").querySelector("[data-contact-err]").innerText = 'This Field is required *';
+        email.closest(".field").querySelector("[data-contact-err]").classList.remove("hidden");
+      }
+      
+      checkForErr();
+    });
+  }
+
+  if(msg){
+    msg.addEventListener("keyup",function(){
+      // console.log("this",this.value);
+      var val = this.value.trim();
+      if(val.length > 0){
+        msg.closest(".field").querySelector("[data-contact-err]").classList.add("hidden");
+      }
+      else{
+        msg.closest(".field").querySelector("[data-contact-err]").classList.remove("hidden");
+      }
+
+      checkForErr();
+    });
+  }
+
+  function checkForErr(){
+
+    let allFilled = true;
+    // var submitBtn = document.querySelector("[data-contact-submit]") || null;
+    var inputs = document.querySelectorAll("#ContactForm .field__input") || null;
+    // console.log("submitBtn",submitBtn);
+    if(inputs.length){
+        inputs.forEach(input => {
+        // console.log("input.length",input.length);
+        var val = input.value.trim();
+        var errShow = input.closest(".field").querySelector("[data-contact-err]:not(.hidden)");
+          //console.log("errShow",errShow);
+        if(val.length == 0 || errShow){
+          allFilled = false;
+          return false;
+        }
+      });
+    }
+
+    if(submitBtn){
+      if(allFilled == true){
+        //console.log("true --> remove");
+        if(submitBtn.classList.contains("disabled")) submitBtn.classList.remove("disabled");
+      }else{
+        // console.log("false --> add");
+        if(!submitBtn.classList.contains("disabled")) submitBtn.classList.add("disabled");
+      }
+    }
+    
+  }
+</script>
+
+{% schema %}
+{
+  "name": "custom contact form",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "t:sections.contact-form.settings.title.default",
+      "label": "t:sections.contact-form.settings.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+     {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone Number",
+      "default": "+1 000 123 12 34"
+    },
+    {
+      "type": "text",
+      "id": "email_address",
+      "label": "Email Address",
+      "default": "flexifloor@sales.com"
+    },
+    {
+      "type": "richtext",
+      "id": "opening_hours",
+      "label": "Opening Hours",
+      "default": "<p>Mo: 9 a.m. – 6 p.m.</p><p>Tu: 9 a.m. – 6 p.m.</p><p>We: 9 a.m. – 6 p.m.</p><p>Th: 9 a.m. – 6 p.m.</p><p>Fr: 9 a.m. – 6 p.m.</p><p>Sa: 10 a.m. – 2 p.m.</p><p>Su: 10 a.m. – 2 p.m.</p>"
+    },
+     {
+      "type": "text",
+      "id": "talk_to_expert_heading",
+      "label": "Talk to Expert Heading",
+      "default": "Talk to Expert"
+    },
+    {
+      "type": "textarea",
+      "id": "talk_to_expert_description",
+      "label": "Talk to Expert Description",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "type": "text",
+      "id": "talk_to_expert_button_text",
+      "label": "Talk to Expert Button Text",
+      "default": "Talk Now"
+    },
+    {
+      "type": "url",
+      "id": "talk_to_expert_button_link",
+      "label": "Talk to Expert Button Link"
+    },
+    {
+      "type": "text",
+      "id": "book_consultation_heading",
+      "label": "Book a Consultation Heading",
+      "default": "Book a Consultation"
+    },
+      {
+      "type": "text",
+      "id": "talk_to_expert_button_text1",
+      "label": "Mobile Button",
+      "default": "Go to Calculator"
+    },
+       {
+      "type": "url",
+      "id": "talk_to_expert_button_link1",
+      "label": "Mobile button Url"
+    },
+    {
+      "type": "text",
+      "id": "book_consultation_heading1",
+      "label": "Book a Consultation Heading",
+      "default": "Book a Consultation"
+    },
+    {
+      "type": "textarea",
+      "id": "book_consultation_description",
+      "label": "Book a Consultation Description",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "type": "text",
+      "id": "book_consultation_button_text",
+      "label": "Book Button Text",
+      "default": "Book Now"
+    },
+    {
+      "type": "url",
+      "id": "book_consultation_button_link",
+      "label": "Book Button Link"
+    },
+       {
+      "type": "text",
+      "id": "book_consultation_button_text1",
+      "label": "Mobile text",
+      "default": "Book Now"
+    },
+    {
+      "type": "url",
+      "id": "book_consultation_button_link1",
+      "label": "Book a Consultation Button Link"
+    },
+    
+         {
+      "type": "text",
+      "id": "heading1",
+      "label": "Form heading",
+      "default": "Book a Consultation"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom contact form"
+    }
+  ]
+}
+{% endschema %}

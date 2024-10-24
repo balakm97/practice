@@ -1,0 +1,180 @@
+{{ 'custom-section-terms-and-conditions.css' | asset_url | stylesheet_tag }}
+<div class="section-container">
+  <div class="row">
+    {% if section.settings.title != blank %}
+    <div class="section-heading">
+      <h2 class="section-main-heading"> {{ section.settings.title }}</h2>
+    </div>
+      {% endif %}
+    <div class ="block-wrapper">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'heading' -%}
+        <div class= "block-container" {{ block.shopify_attributes }}>
+        <h2 class="block-main-heading">{{ block.settings.heading }}</h2>
+        <div class="two-description-item">
+            {% unless block.settings.desc-one == "" %}
+            {{ block.settings.desc-one | strip  }}
+            {% endunless %}
+            {% unless block.settings.desc-two == "" %}
+            {{ block.settings.desc-two }}
+            {% endunless %}
+          </div>
+        </div>
+         {%- when 'sub-title-para' -%}
+           <div class= "block-container multiple-para-sub-title"  {{ block.shopify_attributes }}>
+             
+              <h2 class="block-main-heading">
+                {{ block.settings.heading-two }}
+              </h2>
+             <div class="sub-block-contianer">
+               
+               
+                  {% if block.settings.sub-title-one or block.settings.sub-title-desc-one !=blank %}
+            <div class="sub-block-inner-wrapper item-one">
+              <h4 class="block-inner-sub-title">
+                {{ block.settings.sub-title-one }}
+              </h4>
+              {{block.settings.sub-title-desc-one | strip }}
+            </div>
+              {% endif %}
+                   {% if block.settings.sub-title-two or block.settings.sub-title-desc-two!=blank %}
+               <div class="sub-block-inner-wrapper item-two">
+              <h4 class="block-inner-sub-title">
+                {{ block.settings.sub-title-two }}
+              </h4>
+              {{block.settings.sub-title-desc-two | strip }}
+            </div>
+                   {% endif %}  
+                  {% if block.settings.sub-title-three or block.settings.sub-title-desc-three !=blank %}
+               <div class="sub-block-inner-wrapper item-three">
+              <h4 class="block-inner-sub-title">
+                {{ block.settings.sub-title-three }}
+              </h4>
+              {{block.settings.sub-title-desc-three | strip }}
+            </div>
+                    {% endif %}  
+             </div>
+    
+        </div>
+        {% endcase %}
+    {% endfor %}
+      </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Custom Terms & Condition",
+    "tag": "section",
+    "class": "t-and-c-section",
+    "settings": 
+    [
+      {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Terms & Conditions",
+      "label": "Section Main Title"
+    }
+    ],
+    "blocks": [
+    {
+      "type": "heading",
+      "name": "Two Para Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Horem ipsum dolor sit amet, consectetur.",
+          "label": "Block Main Title"
+        },
+        {
+          "type": "richtext",
+          "id": "desc-one",
+          "default": "<p>Horem ipsum dolor sit amet, consectetur.</p",
+          "label": "Paragraph 1"
+        },
+        {
+          "type": "richtext",
+          "id": "desc-two",
+          "default": "<p>Horem ipsum dolor sit amet, consectetur.</p",
+          "label": "Paragraph 2"
+        }
+      ]
+    },
+      {
+      "type": "sub-title-para",
+      "name": "Muti Sub title Para Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading-two",
+          "default": "Horem ipsum dolor sit amet, consectetur.",
+          "label": "Block Main Title"
+        },
+        {
+        "type": "header",
+        "content": "Block 1"
+        },
+        {
+          "type": "text",
+          "id": "sub-title-one",
+          "default": "Horem ipsum dolor sit amet, consectetur.",
+          "label": "Block Main Title"
+        },
+        {
+          "type": "richtext",
+          "id": "sub-title-desc-one",
+          "default": "<p>Horem ipsum dolor sit amet, consectetur.</p",
+          "label": "Description"
+        },
+        {
+        "type": "header",
+        "content": "Block 2"
+        },
+        {
+          "type": "text",
+          "id": "sub-title-two",
+          "default": "Horem ipsum dolor sit amet, consectetur.",
+          "label": "Sub Title"
+        },
+        {
+          "type": "richtext",
+          "id": "sub-title-desc-two",
+          "default": "<p>Horem ipsum dolor sit amet, consectetur.</p",
+          "label": "Description"
+        },
+        {
+        "type": "header",
+        "content": "Block 3"
+        },
+        {
+          "type": "text",
+          "id": "sub-title-three",
+          "default": "Horem ipsum dolor sit amet, consectetur.",
+          "label": "Sub Title"
+        },
+        {
+          "type": "richtext",
+          "id": "sub-title-desc-three",
+          "default": "<p>Horem ipsum dolor sit amet, consectetur.</p",
+          "label": "Description"
+        }
+      ]
+    }
+    ],
+    "presets": [
+    {
+      "name": "Custom Terms & Condition",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "sub-title-para"
+        }
+      ]
+  }
+    ]
+  }
+{% endschema %}

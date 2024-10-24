@@ -1,0 +1,70 @@
+{{ 'custom-grid-slider.css' | asset_url | stylesheet_tag }}
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+{{ 'swiper-bundle.min.js' | asset_url | script_tag }}
+<div class="custom-grid-slider">
+    <h1 class="section-heading">Easy to Install</h1>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide column-grid">
+                <img src="https://cdn.shopify.com/s/files/1/0655/2610/4256/files/Rectangle_34.png?v=1727101134" alt="Step 1 Image">
+                <h2 class="grid-heading">Step 01 Title</h2>
+                <p class="grid-description">Jorem ipsum dolor sit amet, adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu.</p>
+            </div>
+            <div class="swiper-slide column-grid">
+                <img src="https://cdn.shopify.com/s/files/1/0655/2610/4256/files/Rectangle_34_1.png?v=1727101150" alt="Step 2 Image">
+                <h2 class="grid-heading">Step 02 Title</h2>
+                <p class="grid-description">Velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            </div>
+            <div class="swiper-slide column-grid">
+                <img src="https://cdn.shopify.com/s/files/1/0655/2610/4256/files/Rectangle_34_2.png?v=1727101167" alt="Step 3 Image">
+                <h2 class="grid-heading">Step 03 Title</h2>
+                <p class="grid-description">Jorem ipsum dolor sit amet, adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu.</p>
+            </div>
+            <div class="swiper-slide column-grid">
+                <img src="https://cdn.shopify.com/s/files/1/0655/2610/4256/files/Rectangle_34_3.png?v=1727101172" alt="Step 4 Image">
+                <h2 class="grid-heading">Step 04 Title</h2>
+                <p class="grid-description">Velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            </div>
+        </div>
+       <div class="swiper-scrollbar"></div>
+    </div>
+</div>
+<script>
+const swiper = new Swiper('.swiper-container', {
+    slidesPerView: 4, // Default for desktop
+    spaceBetween: 30,
+     scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: true,
+      },
+   breakpoints: {
+   
+    320: {
+      slidesPerView: 1.09,
+    },
+  
+    480: {
+      slidesPerView: 2.5,
+    },
+   
+    768: {
+      slidesPerView: 4,
+    },
+  },
+});
+</script>
+
+
+{% schema %}
+  {
+    "name": "Custom grid slider",
+    "settings": [
+      
+    ],
+       "presets": [
+    {
+      "name": "Custom grid slider"
+    }
+  ] 
+  }
+{% endschema %}

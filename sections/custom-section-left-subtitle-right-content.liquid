@@ -1,0 +1,54 @@
+{{ 'custom-section-left-subtitle-right-content.css' | asset_url | stylesheet_tag }}
+<div class="section-container">
+  <div class="page-width row">
+    <div class="section-inner-wrapper">
+       {% if section.settings.title != blank or section.settings.description != blank or section.settings.sub-title != blank %}
+      <div class="content-container">
+        <div class="content-wrapper">
+        {% if section.settings.sub-title != blank %}<div class="section-subtitle">{{ section.settings.sub-title }}</div>{% endif %}
+        {% if section.settings.title != blank or section.settings.description != blank %}
+        <div class="section-desc rte">
+        {% if section.settings.title != blank %}<h2 class="section-heading h2">{{ section.settings.title }}</h2>{% endif %}
+        {% if section.settings.description %}<p>{{ section.settings.description }}</p> {% endif %}
+        </div>
+        {% endif %}
+      </div>
+      </div>
+         {% endif %}
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+      "name": "Cst L-subtitle-R-content",
+      "tag": "section",
+      "class": "cst-left-subtitle-right-content",
+    "settings": [
+          {
+          "type": "text",
+          "id": "sub-title",
+          "label": "Sub title",
+          "default": "Empowering you to DIY  "
+          },
+          {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title",
+          "default": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+          },
+          {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+           "default": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. "
+          }
+          
+    ],
+    "blocks": [],
+    "presets": [
+    {
+    "name": "Cst L Subtitle "
+    }
+  ]
+  }
+{% endschema %}

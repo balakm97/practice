@@ -1,0 +1,93 @@
+.service-wrap {
+    display: flex;
+    gap: 30px;
+}
+.service-wrap > div {
+  flex: 1 0 0;
+}
+.custom-designers-services .service-wrap .heading-block {
+    padding-right: 148px;
+}
+.custom-designers-services .service-wrap .heading-block .subtitle {
+    color: #0003;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: -.02em;
+    margin-bottom: 40px;
+}
+.heading-block .main-heading {
+  color: #000;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px;
+}
+.heading-block .main-heading span {
+  color: #2783D2;
+}
+.custom-designers-services .service-wrap .heading-block p {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    margin: 0 0 20px;
+}
+.services-wrapper ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 30px;
+}
+.services-wrapper .service-item .icon {
+  margin-bottom: 30px;
+  display: flex;
+}
+.services-wrapper .service-item .service-title {
+  color: #000;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  margin: 0 0 15px;
+}
+.services-wrapper .service-item p {
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  margin: 0;
+}
+@media screen and (max-width: 1441px) {
+  .custom-designers-services .service-wrap .heading-block {
+    padding-right: 130px;
+  }
+}
+@media screen and (max-width: 1200px) { 
+  .custom-designers-services .service-wrap .heading-block {
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-wrap {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .custom-designers-services .service-wrap .heading-block .subtitle {
+    font-size: 18px;
+  } 
+  .heading-block .main-heading {
+    font-size: 36px;
+  }
+  .services-wrapper .service-item svg {
+    width: 20px;
+    height: 20px;
+  }
+  .services-wrapper .service-item .service-title {
+    font-size: 20px;
+  }
+  .custom-designers-services .button .btn-primary {
+    margin: 0;
+  }
+}

@@ -1,0 +1,22 @@
+{{ 'breadcrumb.css' | asset_url | stylesheet_tag }}
+
+{% render 'breadcrumb', showInContainer: section.settings.showInContainer %}
+
+{% schema %}
+  {
+    "name": "Breadcrumb",
+    "class": "breadcrumb",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "showInContainer",
+        "label": "Show in Container"
+      }
+    ],
+    "presets": [
+    {
+      "name": "Breadcrumb",
+  }
+    ]
+  }
+{% endschema %}

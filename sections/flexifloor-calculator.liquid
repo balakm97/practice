@@ -1,0 +1,199 @@
+<!-- Flexifloor Calculator Section with Four Inputs -->
+<style>
+  .calculator-form {
+      background-color: #f9f9f9; /* light background */
+      padding: 20px;
+      max-width: 500px;
+      margin: 0 auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-group {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction:column; 
+  }
+
+  label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+  }
+
+  input[type="number"], select {
+      width: calc(100% - 50px);
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+  }
+
+  .unit-label {
+      margin-left: 10px;
+      font-weight: bold;
+  }
+
+  .btn-calculate {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+  }
+
+  .btn-calculate:hover {
+      background-color: #0056b3;
+  }
+
+  .result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #eef;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+      .calculator-form {
+          width: 100%;
+          padding: 15px;
+      }
+
+      .btn-calculate {
+          padding: 10px;
+          font-size: 14px;
+      }
+  }
+  .form-group {
+    position: relative;
+    margin-bottom: 1em;
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.input-container input {
+    padding-right: 40px; /* Adjust padding based on the size of the unit label */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.unit-label {
+    position: absolute;
+    right: 10px;
+    top: 38%;
+    transform: translateY(-50%);
+    pointer-events: none; /* This makes sure the label doesn't block interaction with the input */
+    color: #999;
+}
+</style>
+
+<form id="flexifloor-calculator" class="calculator-form">
+    <div class="form-group">
+        <label for="measurement-unit">What do you measure in?</label>
+        <select id="measurement-unit" name="measurement-unit">
+            <option value="mm">Millimeters (mm)</option>
+            <option value="cm">Centimeters (cm)</option>
+            <option value="m">Meters (m)</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="product-type">Select Product Type</label>
+        <select id="product-type" name="product-type">
+            <option value="flexifloor-tiles">Flexifloor Tiles (1 tile = 1 m²)</option>
+            <option value="other">Other Products</option>
+        </select>
+    </div>
+<div class="form-group">
+    <label for="room-length">Room Length</label>
+    <div class="input-container">
+        <input type="number" id="room-length" name="room-length" placeholder="Enter Length" required>
+        <span class="unit-label">mm</span>
+    </div>
+</div>
+    <div class="form-group">
+        <label for="room-width">Room Width</label>
+        <div class="input-container">
+        <input type="number" id="room-width" name="room-width" placeholder="Enter Width" required>
+           <span class="unit-label" id="width-unit-label">mm</span>
+        </div>
+    </div>
+
+    <button type="submit" class="btn-calculate">Calculate Now</button>
+</form>
+
+<div id="calculation-result" class="result" style="display:none;"></div>
+
+<script>
+  // Function to update unit labels dynamically based on the selected measurement unit
+  document.getElementById('measurement-unit').addEventListener('change', function() {
+      const selectedUnit = this.value;
+      document.getElementById('length-unit-label').innerText = selectedUnit;
+      document.getElementById('width-unit-label').innerText = selectedUnit;
+  });
+
+  // Function to handle the calculation based on the inputs
+  document.getElementById('flexifloor-calculator').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get form values
+      const length = parseFloat(document.getElementById('room-length').value);
+      const width = parseFloat(document.getElementById('room-width').value);
+      const measurementUnit = document.getElementById('measurement-unit').value;
+
+      if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
+          alert('Please enter valid numbers for length and width');
+          return;
+      }
+
+      // Convert length and width based on the unit selected
+      let convertedLength = length;
+      let convertedWidth = width;
+
+      if (measurementUnit === 'cm') {
+          convertedLength = length / 100;  // Convert cm to meters
+          convertedWidth = width / 100;
+      } else if (measurementUnit === 'mm') {
+          convertedLength = length / 1000; // Convert mm to meters
+          convertedWidth = width / 1000;
+      }
+
+      // Calculate the area in square meters
+      const area = convertedLength * convertedWidth;
+
+      // Assuming 1 product unit covers 1 square meter (for Flexifloor tiles)
+      let productCoveragePerUnit = 1; // 1 m² per tile (adjust as needed)
+
+      // Calculate the number of product units required
+      const unitsRequired = Math.ceil(area / productCoveragePerUnit); // Round up to ensure enough tiles
+
+      // Display the result
+      const resultElement = document.getElementById('calculation-result');
+      resultElement.style.display = 'block';
+      resultElement.innerHTML = `The total area is ${area.toFixed(2)} square meters.<br>You will need ${unitsRequired} ${productCoveragePerUnit == 1 ? 'tile(s)' : 'unit(s)'} to cover the area.`;
+  });
+</script>
+{% schema %}
+  {
+    "name": "calculator",
+    "settings": [
+      
+    ],
+      "presets": [
+      {
+        "name": "Custom calculator"
+      }
+      ]
+  }
+{% endschema %}

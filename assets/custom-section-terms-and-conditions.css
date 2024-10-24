@@ -1,0 +1,94 @@
+
+.t-and-c-section .section-heading .section-main-heading {
+  font-size: 48px;
+font-weight: 600;
+line-height: 100%;
+letter-spacing: -0.96px;
+  color:#000;
+}
+.t-and-c-section {
+  padding: 150px 0;
+}
+.t-and-c-section .section-heading {
+  margin-bottom: 60px;
+}
+.t-and-c-section .section-container p,
+.t-and-c-section .section-container h2
+{margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    
+}
+.t-and-c-section  .two-description-item p:not(:last-child,:only-child){
+  margin-bottom: 15px;
+}
+.t-and-c-section  .two-description-item ul{
+  list-style-type: square;
+    padding-inline-start: 19px;
+}
+.t-and-c-section .block-inner-sub-title {
+  font-size: 20px;
+  
+}
+.t-and-c-section .sub-block-contianer .sub-block-inner-wrapper:not(:only-child,:last-child) {
+  margin-bottom: 20px;
+}
+.t-and-c-section .block-inner-sub-title:not(:only-child,:last-child){
+  margin: 0 0 12px 0;
+}
+.t-and-c-section  .two-description-item ul li::marker{
+  font-size: 10px;
+}
+.t-and-c-section .section-container {
+  max-width: 910px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.t-and-c-section .section-container .block-main-heading {
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: 120%;
+letter-spacing: -0.64px;
+  margin: 0 0 20px 0;
+  color:#000;
+}
+.t-and-c-section  .two-description-item ul li,
+.t-and-c-section .section-container p {
+  font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; 
+  color:#000;
+}
+.t-and-c-section  .block-wrapper > *:not(:last-child) {
+  margin-bottom: 60px;
+}
+
+@media only screen and (max-width: 1441px){
+  .t-and-c-section .section-container {
+    max-width: 890px;
+}
+}
+@media only screen and (max-width: 767px) {
+  .t-and-c-section {
+  padding: 80px 0;
+}
+  .t-and-c-section .section-heading {
+  margin-bottom: 40px;
+}
+  .t-and-c-section .section-heading .section-main-heading{
+  font-size: 40px;
+  letter-spacing: -0.8px;
+  }
+  .t-and-c-section  .block-wrapper > *:not(:last-child) {
+    margin-bottom: 40px;
+  }
+  .t-and-c-section .section-container .block-main-heading {
+    font-size: 24px;
+  }
+  .t-and-c-section .block-inner-sub-title {
+    font-size: 18px;
+  }
+}

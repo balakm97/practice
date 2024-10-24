@@ -1,0 +1,47 @@
+{{ 'custom-blog-image-banner.css' | asset_url | stylesheet_tag }}
+{% style %}
+  @media screen and (min-width:768px){
+     #custom-blog-image-banner {
+  background-image: url('https://cdn.shopify.com/s/files/1/0655/2610/4256/files/Frame_5537.png?v=1727251195');
+}
+  }
+ @media screen and (max-width:767px){
+     #custom-blog-image-banner  .full-blend-hero-section-container-mobile-image {
+  background-image: url('https://cdn.shopify.com/s/files/1/0655/2610/4256/files/Frame_5536_4.png?v=1727251489');
+   }
+ }
+ {% endstyle %}
+ <div id="custom-blog-image-banner">
+   <div class="full-blend-hero-sectiong-bg-overlay"></div>
+   <div class="full-blend-hero-section-container">
+     <div class="full-blend-hero-section-container-relative">
+       <div class="full-blend-hero-section-container-mobile-image">
+       </div>
+       <div class="full-blend-hero-section-container-box">
+         <div class="full-blend-hero-section-container-box-content-container">
+           <div class="full-blend-hero-section-container-box-heading-container">
+                <h1>Blog</h1> 
+           </div>
+           <div class="full-blend-hero-section-container-box-text-container">
+                <p>Gorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+  {% schema %}
+ {
+   "name": "custom blog banner",
+   "settings": [
+   
+   ],
+
+   "presets": [
+     {
+       "name": "custom blog banner",
+     }
+   ]
+ }
+ {% endschema %}
